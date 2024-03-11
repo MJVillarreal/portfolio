@@ -1,4 +1,4 @@
-.aboutContainer {
+.contactContainer {
     background-color: var(--primary-color);
     color: var(--primary-text-color);
     padding: 4rem;
@@ -9,7 +9,7 @@
     min-height: 100vh;
 }
 
-.about {
+.contact {
     width: 80%;
 }
 
