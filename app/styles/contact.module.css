@@ -1,4 +1,4 @@
-.contactContainer {
+.contactSection {
     background-color: var(--primary-color);
     color: var(--primary-text-color);
     padding: 4rem;
@@ -15,4 +15,30 @@
 
 .page {
     padding-top: 2rem;
+}
+
+.contactContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding-top: 3rem;
+}
+
+.contactLink {
+    display: flex;
+    align-items: center;
+    font-size: larger;
+}
+
+.contactLink a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--primary-text-color);
+}
+
+.contactIcon {
+    color: var(--button-color);
+    font-size: 3rem;
+    padding-right: 1rem;
 }
