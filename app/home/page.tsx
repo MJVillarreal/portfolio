@@ -28,9 +28,6 @@ const Home: React.FC = () => {
                     <button className={styles.button}><span>About me</span><i></i></button>
                 </Link>
                 
-                
-            
-
                 <div className={styles.floatingContainer}>
 
                     <div className={styles.floatingButton}> + </div>
