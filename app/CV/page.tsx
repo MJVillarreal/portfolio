@@ -12,7 +12,10 @@ const About: React.FC = () => {
             <div className={styles.about}>
             <Navbar></Navbar>
                 <div className={styles.page}>
-                    <h1>Download my resume from here</h1>
+                    <h1>View and download my resume</h1>
+                    <div>
+                        <iframe src="/archives/Resume-MariaJoseVillarreal.pdf" width="100%" height="800rem" />
+                    </div> 
                 </div>
                 
             </div>
