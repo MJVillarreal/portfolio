@@ -16,7 +16,7 @@ const Home: React.FC = () => {
             <div className={styles.aboutContainer}>
 
                 <div>
-                    <h1>Hi there, I'm Majo</h1>
+                    <h1>Hi there, I'm María José</h1>
                     <p>I'm a 22 years old frontend developer from Mendoza, Argentina</p>
                 </div>
 
