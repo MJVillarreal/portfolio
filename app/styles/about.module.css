@@ -19,3 +19,12 @@
     flex-direction: column;
     gap: 2rem;
 }
+
+.certificates {
+    display: flex;
+    gap: 2rem;
+}
+
+.certificates img {
+    width: 50%;
+}
