@@ -28,7 +28,15 @@
     border-radius: 2rem;
 }
 
-.certificatesContainer img {
+/* .certificatesContainer img {
     width: 80%;
+} */
+
+.ctd {
+    width: 80%;
+}
+
+.language {
+    width: 90%;
 }
 

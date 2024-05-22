@@ -15,9 +15,10 @@ const Home: React.FC = () => {
         <div className={styles.homeContainer}>
             <div className={styles.aboutContainer}>
 
-                <div>
+                <div className={styles.aboutText}>
                     <h1>Hi there, I'm María José</h1>
-                    <p>I'm a 22 years old frontend developer from Mendoza, Argentina</p>
+                    <p>I'm Majo, a 22 years old Front-end Developer and Systems Engineering student at Universidad Tecnológica Nacional in Mendoza, Argentina. </p>
+                    <p>I’m seeking to gain experience as a Web Developer specialized in Front-end.</p>
                 </div>
 
                 <img src='/images/profile.jpg' alt="profile picture" className={styles.picture} />

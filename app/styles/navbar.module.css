@@ -43,23 +43,3 @@
     transform: scaleX(1);
 }
 
-/* .navbarItem a:hover::after {
-    content: "";
-    height: 0.2rem;
-    width: 100%;
-    background-color: var(--secondary-button-color);
-    position: absolute;
-    border-top-left-radius: 0.2rem;
-    border-top-right-radius: 0.2rem;
-    bottom: -0.3rem;
-    animation: appear 0.2s linear;
-}
-
-@keyframes appear {
-    from {
-        width: 0;
-    }
-    to {
-        width: 100%;
-    }
-} */
