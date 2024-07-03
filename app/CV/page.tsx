@@ -39,7 +39,7 @@ const CV: React.FC = () => {
 
                                 <img src='/images/CV_Es.jpg'></img>
 
-                                <a href = '/archives/MariaJoseVillarreal-Resume.pdf' target = "_blank">
+                                <a href = '/archives/CV-MaríaJoséVillarreal.pdf' target = "_blank">
                                     <Button
                                         component="label"
                                         variant="contained"
