@@ -45,16 +45,20 @@
 /* Screens smaller than 768px */
 
 @media (max-width: 768px) {
+    
     .about {
         width: 70%;
     }
+
     .certificatesContainer {
         flex-direction: column;
     }
-  .ctd {
+
+    .ctd {
         width: 85%;
     }
-  .language {
+
+    .language {
         width: 95%;
     }
 }
@@ -62,24 +66,30 @@
   /* Screens smaller than 480px */
 
   @media (max-width: 720px) {
+
     .about {
-          width: 90%;
+        width: 90%;
       }
+
     .certificatesContainer {
-          flex-direction: column;
-          padding: 1rem;
+        flex-direction: column;
+        padding: 1.5rem;
       }
+
     .certificate {
-          margin-bottom: 2rem;
+        margin-bottom: 2rem;
       }
+
     .page h1 {
-          font-size: 1.5rem;
+        font-size: 1.5rem;
       }
+
     .ctd {
-          width: 100%;
+        width: 100%;
       }
+
     .language {
-          width: 100%;
+        width: 100%;
       }
   }
   
