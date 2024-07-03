@@ -192,49 +192,40 @@
 /* Screens smaller than 768px */
 
 @media (max-width: 768px) {
-
     .homeContainer {
         padding-top: 5rem;
     }
-
     .aboutContainer {
         flex-direction: column;
         align-items: center;
         width: 90%;
     }
-    
+
     .aboutContainer .aboutText h1 {
         order: 1;
     }
-
     .aboutContainer img {
         order: 2; 
     }
-
     .aboutContainer .aboutText p {
         order: 3;
     }
-
     .picture {
         padding-top: 1rem;
         width: 15rem;
     }
-
     .aboutText {
         text-align: center;
     }
-
     .button {
         font-size: 1.2rem;
         padding: 0.4rem 1.5rem;
     }
-
     .floatingContainer {
         width: 3rem;
         height: 3rem;
         margin: 1rem 1rem;
     }
-
     .floatingButton {
         font-size: 1.5rem;
         width: 3rem;
@@ -243,26 +234,23 @@
         justify-content: center;
         align-items: center;
     }
-
     .floatElement {
         width: 2.5rem;
         height: 2.5rem;
         margin-bottom: 0.5rem;
         margin-left: 0.2rem;
     }
-  }
+}
   
-  /* Screens smaller than 480px */
+/* Screens smaller than 480px */
 
-  @media (max-width: 480px) {
+@media (max-width: 480px) {
     .homeContainer {
         padding-top: 3rem;
     }
-
     .aboutContainer {
         width: 95%;
     }
-
     .picture {
         padding-top: 0,5rem;
         width: 12rem;
@@ -274,13 +262,12 @@
         font-size: 1rem;
         padding: 0.3rem 1rem;
     }
-    
+
     .floatingContainer {
         width: 2rem;
         height: 2rem;
         margin: 0.5rem 1.5rem 1rem;
     }
-
     .floatingButton {
         font-size: 1.2rem;
         width: 2.5rem;
@@ -289,7 +276,6 @@
         justify-content: center;
         align-items: center;
     }
-
     .floatElement {
         font-size: 1.2rem;
         width: 2rem;
@@ -297,4 +283,4 @@
         margin-bottom: 0.3rem;
         margin-left: 0.1rem;
     }
-  }
+}

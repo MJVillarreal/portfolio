@@ -2,13 +2,12 @@ import React from 'react';
 
 import styles from "../styles/projects.module.css"
 
-import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 
 import Navbar from '../components/navbar';
 
 
-const About: React.FC = () => {
+const Projects: React.FC = () => {
 
 
     return (
@@ -57,4 +56,4 @@ const About: React.FC = () => {
     )   
   };
   
-  export default About;
+  export default Projects;

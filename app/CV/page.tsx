@@ -7,7 +7,7 @@ import Navbar from '../components/navbar';
 import Button from '@mui/material/Button';
 import DownloadIcon from '@mui/icons-material/Download';
 
-const About: React.FC = () => {
+const CV: React.FC = () => {
 
     return (
         <div className={styles.cvContainer}>
@@ -25,8 +25,11 @@ const About: React.FC = () => {
                                     <Button
                                         component="label"
                                         variant="contained"
+                                        className={styles.customButton}
                                         tabIndex={-1}
-                                        endIcon={<DownloadIcon />} >Download Resume
+                                        endIcon={<DownloadIcon />}>
+                                            <span className={styles.buttonTextFull}>Download Resume</span>
+                                            <span className={styles.buttonTextShort}>Download</span>
                                     </Button>
                                 </a>
 
@@ -40,8 +43,11 @@ const About: React.FC = () => {
                                     <Button
                                         component="label"
                                         variant="contained"
+                                        className={styles.customButton}
                                         tabIndex={-1}
-                                        endIcon={<DownloadIcon />} >Descargar CV
+                                        endIcon={<DownloadIcon />}>
+                                            <span className={styles.buttonTextFull}>Descargar CV</span>
+                                            <span className={styles.buttonTextShort}>Descargar</span>
                                     </Button>
                                 </a>
 
@@ -55,4 +61,4 @@ const About: React.FC = () => {
     )   
   };
   
-  export default About;
+  export default CV;
