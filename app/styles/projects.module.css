@@ -59,41 +59,41 @@
 
 @media (max-width: 930px) {
     .projectsSection {
-      width: 90%;
+        width: 90%;
     }
     .projects {
-      flex-direction: column;
+        flex-direction: column;
     }
     .projects img {
-      width: 100%;
-      padding-bottom: 1rem;
+        width: 100%;
+        padding-bottom: 1rem;
     }
     .projectDetails {
-      padding-left: 2rem;
+        padding-left: 2rem;
     }
-  }
+}
   
  /* Screens smaller than 480px */
  
-  @media (max-width: 550px) {
+@media (max-width: 550px) {
     .projectsSection {
-      width: 95%;
+        width: 95%;
     }
     .projects {
-      padding: 1rem;
+        padding: 1rem;
     }
     .projects img {
-      width: 100%;
-      padding-bottom: 1rem;
+        width: 100%;
+        padding-bottom: 1rem;
     }
     .projectDetails {
-      padding-left: 1rem;
+        padding-left: 1rem;;
     }
     .projectButton {
-      flex-direction: column;
+        flex-direction: column;
     }
     .projectButton a {
-      width: 100%;
-      margin-bottom: 1rem;
+        width: 100%;
+        margin-bottom: 1rem;
     }
-  }
+}
