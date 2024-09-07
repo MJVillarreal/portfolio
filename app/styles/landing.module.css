@@ -17,8 +17,31 @@
     border-radius: 30%;
 }
 
+.aboutText {
+    text-align: justify;
+}
+
 .aboutText p {
     padding-top: 1rem;
+    padding-bottom: 2rem;
+}
+
+.customButton {
+    background-color: var(--button-color) !important;
+    color: var(--primary-text-color) !important;
+    padding: 0.8rem 2rem !important;
+    border-radius: 4px !important;
+    font-size: 1rem !important;
+    width: 17rem;
+    box-sizing: border-box;
+}
+
+.buttonTextFull {
+    display: inline-block; 
+}
+  
+.buttonTextShort {
+    display: none; 
 }
 
 /* Responsive styles */

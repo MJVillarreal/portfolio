@@ -1,0 +1,21 @@
+{
+    "navbarHome": "Home",
+    "navbarAbout": "About me",
+    "navbarProjects": "Projects",
+    "navbarTech": "Technologies",
+    "navbarCV": "Download CV",
+
+    "landingTitle": "Front-End Developer",
+    "landingDescription": "I specialize in building responsive web solutions that combine sleek design with intuitive navigation.",
+    "cvUrl": "/archives/Resume-MariaJoseVillarreal.pdf",
+    "cvButtonText": "Download Resume",
+
+    "aboutTitle": "About me",
+    "aboutContent1": "I specialize in creating web applications and user interfaces that are not only visually appealing but also easy to use and navigate. I am passionate about creating responsive and accessible designs that work seamlessly on different devices and browsers.",
+    "aboutCertificates": "My certificates", 
+
+    "projectsTitle": "My projects",
+
+    "techTitle": "Technologies",
+    "toolsTitle": "Tools"
+}

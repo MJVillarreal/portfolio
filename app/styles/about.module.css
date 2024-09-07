@@ -9,6 +9,7 @@
 .page {
     display: flex;
     flex-direction: column;
+    text-align: justify;
     gap: 2rem;
     width: 80%;
 }

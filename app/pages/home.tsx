@@ -7,7 +7,6 @@ import Landing from "../components/landing";
 import About from "../components/about";
 import Projects from "../components/projects";
 import Technologies from "../components/technologies";
-import CV from "../components/cv";
 
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
@@ -51,7 +50,6 @@ const Home: React.FC = () => {
       <div id="about"><About /></div>
       <div id="projects"><Projects /></div>
       <div id="technologies"><Technologies /></div>
-      <div id="CV"><CV /></div>
     </>
   );
 };

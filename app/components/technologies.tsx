@@ -1,6 +1,9 @@
+"use client"
 import React from "react";
 
 import styles from "../styles/technologies.module.css";
+
+import { useTranslation } from "react-i18next";
 
 interface TechItem {
   name: string;
@@ -110,10 +113,13 @@ const toolStack: TechItem[] = [
 ];
 
 const Technologies: React.FC = () => {
+
+  const { t } = useTranslation();
+
   return (
     <div className={styles.technoContainer}>
       <div className={styles.page}>
-        <h1>Technologies</h1>
+        <h1>{t("techTitle")}</h1>
         <ul className={styles.technoList}>
           {techStack.map((item, index) => (
             <li className={styles.technoListItem} key={index}>
@@ -122,7 +128,7 @@ const Technologies: React.FC = () => {
             </li>
           ))}
         </ul>
-        <h1>Tools</h1>
+        <h1>{t("toolsTitle")}</h1>
         <ul className={styles.technoList}>
           {toolStack.map((item, index) => (
             <li className={styles.technoListItem} key={index}>

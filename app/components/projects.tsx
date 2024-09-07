@@ -1,16 +1,20 @@
+"use client"
 import React from 'react';
 
 import styles from "../styles/projects.module.css"
+
+import { useTranslation } from "react-i18next";
 
 import Button from '@mui/material/Button';
 
 const Projects: React.FC = () => {
 
+    const { t } = useTranslation();
 
     return (
         <div className={styles.projectsContainer}>
                 <div className={styles.page}>
-                    <h1>My projects</h1>
+                    <h1>{t("projectsTitle")}</h1>
                     <div className={styles.projects}>
                         
                             <img src='/images/DHOdonto.png'></img>

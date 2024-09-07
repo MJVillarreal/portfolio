@@ -4,6 +4,12 @@ import React, { useEffect, useState, ReactNode } from "react";
 
 import styles from "../styles/navbar.module.css";
 
+import { useTranslation } from "react-i18next";
+import i18n from "../i18n";
+
+import TranslateIcon from "@mui/icons-material/Translate";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 
@@ -22,6 +28,22 @@ const NavbarItem = ({
 };
 
 const Navbar = () => {
+  const [lngDropdown, setLngDropdown] = React.useState<HTMLElement | null>(null);
+  const open = Boolean(lngDropdown);
+  const { t } = useTranslation();
+
+  const handleLanguageChange = (lng: string) => {
+    i18n.changeLanguage(lng);
+  };
+
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setLngDropdown(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setLngDropdown(null);
+  };
+
   const [burgerMenuActive, setBurgerMenuActive] = useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
 
@@ -60,23 +82,43 @@ const Navbar = () => {
         <div className={styles.navbarContainer}>
           <ul className={styles.navbarList}>
             <NavbarItem onClick={() => handleNavItemClick("landing")}>
-              Home
+              {t("navbarHome")}
             </NavbarItem>
             <NavbarItem onClick={() => handleNavItemClick("about")}>
-              About Me
+              {t("navbarAbout")}
             </NavbarItem>
             <NavbarItem onClick={() => handleNavItemClick("projects")}>
-              Projects
+              {t("navbarProjects")}
             </NavbarItem>
             <NavbarItem onClick={() => handleNavItemClick("technologies")}>
-            Technologies
+              {t("navbarTech")}
             </NavbarItem>
-            <NavbarItem onClick={() => handleNavItemClick("CV")}>
-              Download CV
-            </NavbarItem>
-            {/* <NavbarItem onClick={() => handleNavItemClick("contact")}>
-              Contact
-            </NavbarItem> */}
+            <li className={styles.navbarItem}>
+              <div>
+                <button
+                  aria-label="language-switcher"
+                  aria-controls="language-menu"
+                  aria-haspopup="true"
+                  onClick={handleClick}
+                  className={styles.languageButton}
+                >
+                  <TranslateIcon />
+                </button>
+                <Menu
+                  id="language-menu"
+                  anchorEl={lngDropdown}
+                  open={open}
+                  onClose={handleClose}
+                >
+                  <MenuItem onClick={() => handleLanguageChange("en")}>
+                    English
+                  </MenuItem>
+                  <MenuItem onClick={() => handleLanguageChange("es")}>
+                    Español
+                  </MenuItem>
+                </Menu>
+              </div>
+            </li>
           </ul>
           <div
             className={`${styles.burgerMenu} ${
@@ -94,23 +136,17 @@ const Navbar = () => {
         >
           <ul className={styles.sidebarList}>
             <NavbarItem onClick={() => handleNavItemClick("landing")}>
-              Home
+              {t("navbarHome")}
             </NavbarItem>
             <NavbarItem onClick={() => handleNavItemClick("about")}>
-              About Me
+              {t("navbarAbout")}
             </NavbarItem>
             <NavbarItem onClick={() => handleNavItemClick("projects")}>
-              Projects
+              {t("navbarProjects")}
             </NavbarItem>
             <NavbarItem onClick={() => handleNavItemClick("technologies")}>
-            Technologies
+              {t("navbarTech")}
             </NavbarItem>
-            <NavbarItem onClick={() => handleNavItemClick("CV")}>
-              Download CV
-            </NavbarItem>
-            {/* <NavbarItem onClick={() => handleNavItemClick("contact")}>
-              Contact
-            </NavbarItem> */}
           </ul>
           <CloseIcon
             className={styles.closeButton}

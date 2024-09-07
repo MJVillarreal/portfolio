@@ -1,0 +1,21 @@
+{
+    "navbarHome": "Inicio",
+    "navbarAbout": "Sobre mi",
+    "navbarProjects": "Proyectos",
+    "navbarTech": "Tecnologías",
+    "navbarCV": "Descargar CV",
+
+    "landingTitle": "Desarrolladora Front-End",
+    "landingDescription": "Me dedico a construir soluciones web receptivas que combinan un diseño elegante con una navegación intuitiva.",
+    "cvUrl": "/archives/CV-MaríaJoséVillarreal.pdf",
+    "cvButtonText": "Descargar CV",
+
+    "aboutTitle": "Sobre mi",
+    "aboutContent1": "Me especializo en crear aplicaciones web e interfaces de usuario que no solo son visualmente atractivas, sino también fáciles de usar y navegar. Me apasiona crear diseños receptivos y accesibles que funcionen perfectamente en diferentes dispositivos y navegadores.",
+    "aboutCertificates": "Mis certificaciones",
+
+    "projectsTitle": "Mis proyectos",
+
+    "techTitle": "Tecnologías",
+    "toolsTitle": "Herramientas"
+}

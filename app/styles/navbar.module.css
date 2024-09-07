@@ -25,6 +25,12 @@
   cursor: pointer;
 }
 
+.languageButton {
+  color: var(--primary-text-color) !important;
+  background-color: var(--primary-color) !important;
+  border: none;
+}
+
 .burgerMenu {
   display: none;
 }
