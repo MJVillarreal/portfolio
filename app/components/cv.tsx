@@ -2,8 +2,6 @@ import React from 'react';
 
 import styles from "../styles/cv.module.css"
 
-import Navbar from '../components/navbar';
-
 import Button from '@mui/material/Button';
 import DownloadIcon from '@mui/icons-material/Download';
 
@@ -11,8 +9,6 @@ const CV: React.FC = () => {
 
     return (
         <div className={styles.cvContainer}>
-            <div className={styles.cv}>
-            <Navbar></Navbar>
                 <div className={styles.page}>
                     <h1>View and download my resume</h1>
                         <div  className={styles.certificates}>
@@ -56,7 +52,6 @@ const CV: React.FC = () => {
                         </div>
                 </div>
                 
-            </div>
         </div>
     )   
   };

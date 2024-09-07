@@ -1,104 +1,94 @@
 .navbarContainer {
-    background-color: var(--secondary-color);
-    min-height: 3rem;
-    display: flex;
-    align-items: center;
+  background-color: var(--primary-color);
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+  min-height: 4rem;
+  display: flex;
+  align-items: center;
+}
+
+.scrolled {
+  box-shadow: 0 2px 4px var(--scroll);
 }
 
 .navbarList {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    list-style-type: none;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  list-style-type: none;
 }
 
-.navbarItem a {
-    color: var(--secondary-text-color);
-    text-decoration: none;
-    position: relative;
-}
-
-.navbarItem a:hover{
-    color: var(--hover);
-} 
-
-.navbarItem a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -0.3rem;
-    width: 100%;
-    height: 0.2rem;
-    background-color: var(--secondary-button-color);
-    border-top-left-radius: 0.2rem;
-    border-top-right-radius: 0.2rem;
-    transform: scaleX(0);
-    transform-origin: right;
-    transition: transform .3s;
-}
-
-.navbarItem a:hover::after {
-    transform-origin: left;
-    transform: scaleX(1);
+.navbarItem p:hover {
+  color: var(--secondary-button-color);
+  cursor: pointer;
 }
 
 .burgerMenu {
+  display: none;
+}
+
+.closeButton {
+  position: absolute;
+  top: 3rem;
+  right: 1rem;
+  z-index: 2;
+  padding: 1rem;
+  font-size: 4rem;
+}
+
+@media only screen and (max-width: 545px) {
+  .navbarList {
     display: none;
+  }
 }
-  
+
 @media only screen and (max-width: 545px) {
-    .navbarList {
-        display: none;
-    }
-}
-  
-@media only screen and (max-width: 545px) {
-    .burgerMenu {
-        display: block;
-    }
+  .burgerMenu {
+    display: block;
+  }
 }
 
 @media only screen and (max-width: 546px) {
-    .burgerMenu {
-        position: fixed;
-        top: 3rem;
-        right: 1rem;
-        z-index: 2; 
-        padding: 1rem;
-        border-bottom-left-radius: 0.5rem;
-    }
+  .burgerMenu {
+    position: fixed;
+    top: 3rem;
+    right: 1rem;
+    z-index: 2;
+    padding: 1rem;
+    border-bottom-left-radius: 0.5rem;
+  }
 }
 .sidebar {
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    right: 0;
-    width: 15rem;
-    height: 100vh;
-    background-color: var(--secondary-color);
-    padding: 1rem;
-    transform: translateX(100%);
-    transition: transform 0.3s;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  width: 15rem;
+  height: 100vh;
+  background-color: var(--secondary-color);
+  padding: 1rem;
+  transform: translateX(100%);
+  transition: transform 0.3s;
 }
 
 .sidebar.active {
-    transform: translateX(0);
+  transform: translateX(0);
 }
 
 .sidebarList {
-    list-style-type: none;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 7rem;
-    font-size: 1.4rem;
+  list-style-type: none;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 7rem;
+  font-size: 1.4rem;
 }
-  
+
 .sidebar .navbarItem {
-    margin-bottom: 3rem;
+  margin-bottom: 3rem;
 }
-  
+
 .sidebar .navbarItem:last-child {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
-  

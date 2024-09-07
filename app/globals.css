@@ -7,14 +7,13 @@
 	--button-color: #112f78;
   --secondary-button-color: #028090;
   --hover: #ffffff;
+  --scroll: #020217;
 
-  --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
-    'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
-    'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+   --font-mono: 'Roboto', 'Helvetica';
 
 }
 
-@media (prefers-color-scheme: ligth) {
+@media (prefers-color-scheme: light) {
   :root {
   --primary-color: #c9c9d5;
   --secondary-color: #dcdcdd;
@@ -24,6 +23,8 @@
 	--button-color: #028090;
   --secondary-button-color: #001d6c;
   --hover: #000000;
+  --scroll: #95979B;
+
   }
 }
 

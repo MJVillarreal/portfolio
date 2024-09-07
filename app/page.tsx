@@ -1,5 +1,5 @@
 import styles from "./page.module.css";
-import Home from "./home/page"
+import Home from "./pages/home"
 
 export default function Index() {
 

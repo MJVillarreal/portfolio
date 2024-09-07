@@ -1,23 +1,16 @@
 .aboutContainer {
-    background-color: var(--primary-color);
-    color: var(--primary-text-color);
     padding: 4rem;
     display: flex;
     flex-direction: column;
     justify-content:flex-start;
     align-items: center;
-    min-height: 100vh;
-}
-
-.about {
-    width: 80%;
 }
 
 .page {
-    padding-top: 2rem;
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    width: 80%;
 }
 
 .certificatesContainer {
@@ -27,10 +20,6 @@
     padding-left: 7rem;
     border-radius: 2rem;
 }
-
-/* .certificatesContainer img {
-    width: 80%;
-} */
 
 .ctd {
     width: 80%;
@@ -92,5 +81,3 @@
         width: 100%;
       }
   }
-  
-

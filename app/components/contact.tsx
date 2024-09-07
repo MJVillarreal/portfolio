@@ -2,10 +2,8 @@ import React from 'react';
 
 import styles from "../styles/contact.module.css"
 
-import Navbar from '../components/navbar';
 import LinkedInIcon from '@mui/icons-material/LinkedIn'
 import EmailIcon from '@mui/icons-material/Email';
-
 
 const Contact: React.FC = () => {
 
@@ -14,7 +12,6 @@ const Contact: React.FC = () => {
     return (
         <div className={styles.contactSection}>
             <div className={styles.contact}>
-                <Navbar></Navbar>
                 <div className={styles.page}>
                     <h1>Here's where you can contact me!</h1>
 

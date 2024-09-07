@@ -4,16 +4,11 @@ import styles from "../styles/projects.module.css"
 
 import Button from '@mui/material/Button';
 
-import Navbar from '../components/navbar';
-
-
 const Projects: React.FC = () => {
 
 
     return (
         <div className={styles.projectsContainer}>
-            <div className={styles.projectsSection}>
-            <Navbar></Navbar>
                 <div className={styles.page}>
                     <h1>My projects</h1>
                     <div className={styles.projects}>
@@ -50,8 +45,6 @@ const Projects: React.FC = () => {
                         </div>
                     </div>
                 </div>
-                
-            </div>
         </div>
     )   
   };

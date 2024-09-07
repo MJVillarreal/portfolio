@@ -6,18 +6,14 @@
     flex-direction: column;
     justify-content:flex-start;
     align-items: center;
-    min-height: 100vh;
-}
-
-.cv {
-    width: 80%;
+    
 }
 
 .page {
-    padding-top: 2rem;
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    width: 80%;
 }
 
 .certificates {
@@ -110,5 +106,3 @@
         display: inline-block; 
     }
 }
-  
-

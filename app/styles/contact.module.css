@@ -1,27 +1,18 @@
 .contactSection {
     background-color: var(--primary-color);
     color: var(--primary-text-color);
-    padding: 4rem;
+    padding-left: 4rem;
     display: flex;
     flex-direction: column;
     justify-content:flex-start;
     align-items: center;
-    min-height: 100vh;
-}
-
-.contact {
-    width: 80%;
-}
-
-.page {
-    padding-top: 2rem;
+    padding-bottom: 15rem;
 }
 
 .contactContainer {
     display: flex;
     flex-direction: column;
     gap: 3rem;
-    padding-top: 3rem;
 }
 
 .contactLink {
