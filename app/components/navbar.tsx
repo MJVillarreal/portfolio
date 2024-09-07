@@ -68,6 +68,9 @@ const Navbar = () => {
             <NavbarItem onClick={() => handleNavItemClick("projects")}>
               Projects
             </NavbarItem>
+            <NavbarItem onClick={() => handleNavItemClick("technologies")}>
+            Technologies
+            </NavbarItem>
             <NavbarItem onClick={() => handleNavItemClick("CV")}>
               Download CV
             </NavbarItem>
@@ -98,6 +101,9 @@ const Navbar = () => {
             </NavbarItem>
             <NavbarItem onClick={() => handleNavItemClick("projects")}>
               Projects
+            </NavbarItem>
+            <NavbarItem onClick={() => handleNavItemClick("technologies")}>
+            Technologies
             </NavbarItem>
             <NavbarItem onClick={() => handleNavItemClick("CV")}>
               Download CV

@@ -1,0 +1,86 @@
+.technoContainer {
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start;
+    align-items: center;
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 80%;
+}
+
+.technoList {
+    background-color: var(--background-details);
+    border-radius: 2rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.technoListItem {
+    margin: 0.6rem;
+    width: calc(20% - 1.25rem);
+    text-align: center;
+}
+
+.technoListItem img {
+    width: 3.125rem;
+    height: 3.125rem; 
+    margin: 0.7rem;
+}
+
+.technoListItem span {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-top: 0.6rem;
+    display: block;
+}
+
+/* Responsive styles */
+
+/* Screens smaller than 930px */
+
+@media (max-width: 930px) {
+    .technoListItem {
+        width: calc(25% - 1.25rem);
+    }
+}
+
+/* Screens smaller than 650px */
+
+@media (max-width: 650px) {
+    .technoListItem {
+        width: calc(33.33% - 1.25rem);
+    }
+}
+
+/* Screens smaller than 550px */
+
+@media (max-width: 550px) {
+    .technoListItem {
+        width: calc(50% - 1.25rem);
+    }
+}
+
+/* Screens smaller than 390px */
+
+@media (max-width: 390px) {
+    .technoListItem span {
+        display: none;
+    }
+}
+
+/* Screens smaller than 300px */
+
+@media (max-width: 300px) {
+    .technoListItem {
+        width: calc(100% - 1.25rem);
+    }
+}
