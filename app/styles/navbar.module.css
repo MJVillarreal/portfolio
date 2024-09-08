@@ -31,6 +31,23 @@
   border: none;
 }
 
+.languageButton:hover {
+  color: var(--secondary-button-color);
+  cursor: pointer;
+}
+
+.lightModeButton {
+  color: var(--primary-text-color) !important;
+  background-color: var(--primary-color) !important;
+  border: none;
+  padding-left: 2rem;
+}
+
+.lightModeButton:hover {
+  color: var(--secondary-button-color);
+  cursor: pointer;
+}
+
 .burgerMenu {
   display: none;
 }

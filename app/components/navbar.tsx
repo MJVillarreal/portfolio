@@ -10,6 +10,8 @@ import i18n from "../i18n";
 import TranslateIcon from "@mui/icons-material/Translate";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+import DarkModeIcon from "@mui/icons-material/DarkMode";
+import LightModeIcon from "@mui/icons-material/LightMode";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 
@@ -28,7 +30,9 @@ const NavbarItem = ({
 };
 
 const Navbar = () => {
-  const [lngDropdown, setLngDropdown] = React.useState<HTMLElement | null>(null);
+  const [lngDropdown, setLngDropdown] = React.useState<HTMLElement | null>(
+    null
+  );
   const open = Boolean(lngDropdown);
   const { t } = useTranslation();
 
@@ -46,6 +50,7 @@ const Navbar = () => {
 
   const [burgerMenuActive, setBurgerMenuActive] = useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
+  const [isLightMode, setIsLightMode] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -72,6 +77,29 @@ const Navbar = () => {
     }
   };
 
+  useEffect(() => {
+    const storedTheme = localStorage.getItem("theme");
+    if (storedTheme === "light") {
+      setIsLightMode(true);
+    } else {
+      setIsLightMode(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (isLightMode) {
+      document.documentElement.classList.add("light-mode");
+    } else {
+      document.documentElement.classList.remove("light-mode");
+    }
+  }, [isLightMode]);
+
+  const handlLightModeToggle = () => {
+    const newMode = !isLightMode;
+    setIsLightMode(newMode);
+    localStorage.setItem("theme", newMode ? "light" : "dark");
+  };
+
   return (
     <>
       <div
@@ -93,32 +121,46 @@ const Navbar = () => {
             <NavbarItem onClick={() => handleNavItemClick("technologies")}>
               {t("navbarTech")}
             </NavbarItem>
-            <li className={styles.navbarItem}>
-              <div>
-                <button
-                  aria-label="language-switcher"
-                  aria-controls="language-menu"
-                  aria-haspopup="true"
-                  onClick={handleClick}
-                  className={styles.languageButton}
-                >
-                  <TranslateIcon />
-                </button>
-                <Menu
-                  id="language-menu"
-                  anchorEl={lngDropdown}
-                  open={open}
-                  onClose={handleClose}
-                >
-                  <MenuItem onClick={() => handleLanguageChange("en")}>
-                    English
-                  </MenuItem>
-                  <MenuItem onClick={() => handleLanguageChange("es")}>
-                    Español
-                  </MenuItem>
-                </Menu>
-              </div>
-            </li>
+            <div className={styles.toggleButtons}>
+              <button
+                aria-label="language-switcher"
+                aria-controls="language-menu"
+                aria-haspopup="true"
+                onClick={handleClick}
+                className={styles.languageButton}
+              >
+                <TranslateIcon />
+              </button>
+              <Menu
+                id="language-menu"
+                anchorEl={lngDropdown}
+                open={open}
+                onClose={handleClose}
+                className={styles.languageMenu}
+                anchorOrigin={{
+                  vertical: "bottom",
+                  horizontal: "right",
+                }}
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+              >
+                <MenuItem onClick={() => handleLanguageChange("en")}>
+                  English
+                </MenuItem>
+                <MenuItem onClick={() => handleLanguageChange("es")}>
+                  Español
+                </MenuItem>
+              </Menu>
+              <button
+                aria-label="light-mode-toggle"
+                onClick={handlLightModeToggle}
+                className={styles.lightModeButton}
+              >
+                {isLightMode ? <DarkModeIcon /> : <LightModeIcon /> }
+              </button>
+            </div>
           </ul>
           <div
             className={`${styles.burgerMenu} ${
@@ -147,6 +189,50 @@ const Navbar = () => {
             <NavbarItem onClick={() => handleNavItemClick("technologies")}>
               {t("navbarTech")}
             </NavbarItem>
+            <li className={styles.navbarItem}>
+              <div>
+                <button
+                  aria-label="language-switcher"
+                  aria-controls="language-menu"
+                  aria-haspopup="true"
+                  onClick={handleClick}
+                  className={styles.languageButton}
+                >
+                  <TranslateIcon />
+                </button>
+                <Menu
+                  id="language-menu"
+                  anchorEl={lngDropdown}
+                  open={open}
+                  onClose={handleClose}
+                  className={styles.languageMenu}
+                  anchorOrigin={{
+                    vertical: "bottom",
+                    horizontal: "right",
+                  }}
+                  transformOrigin={{
+                    vertical: "top",
+                    horizontal: "right",
+                  }}
+                >
+                  <MenuItem onClick={() => handleLanguageChange("en")}>
+                    English
+                  </MenuItem>
+                  <MenuItem onClick={() => handleLanguageChange("es")}>
+                    Español
+                  </MenuItem>
+                </Menu>
+              </div>
+            </li>
+            <li>
+              <button
+                aria-label="light-mode-toggle"
+                onClick={handlLightModeToggle}
+                className={styles.lightModeButton}
+              >
+                {isLightMode ? <DarkModeIcon /> : <LightModeIcon /> }
+              </button>
+            </li>
           </ul>
           <CloseIcon
             className={styles.closeButton}

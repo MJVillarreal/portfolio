@@ -46,10 +46,12 @@ const Home: React.FC = () => {
       </div>
 
       <Navbar></Navbar>
+      <div className={styles.homeContainer}>
       <div id="landing"><Landing /></div>
       <div id="about"><About /></div>
       <div id="projects"><Projects /></div>
       <div id="technologies"><Technologies /></div>
+      </div>
     </>
   );
 };

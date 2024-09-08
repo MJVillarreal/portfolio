@@ -25,7 +25,7 @@
 }
 
 .technoListItem {
-    margin: 0.6rem;
+    padding: 2rem;
     width: calc(20% - 1.25rem);
     text-align: center;
 }

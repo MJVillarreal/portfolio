@@ -15,7 +15,7 @@ const Landing: React.FC = () => {
       <div className={styles.page}>
         <div className={styles.aboutText}>
           <h1>María José Villarreal,</h1>
-          <h1>{t("landingTitle")}</h1>
+          <h1 className={styles.aboutTitle}>{t("landingTitle")}</h1>
           <p>{t("landingDescription")}</p>
           <a href={t("cvUrl")} target="_blank">
             <Button

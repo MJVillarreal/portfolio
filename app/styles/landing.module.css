@@ -17,6 +17,10 @@
     border-radius: 30%;
 }
 
+.aboutTitle {
+    color: var(--secondary-button-color);
+}
+
 .aboutText {
     text-align: justify;
 }
