@@ -145,6 +145,7 @@ const Navbar = () => {
                   vertical: "top",
                   horizontal: "right",
                 }}
+                disableScrollLock={true}
               >
                 <MenuItem onClick={() => handleLanguageChange("en")}>
                   English

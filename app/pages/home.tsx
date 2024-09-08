@@ -1,7 +1,5 @@
 import React from "react";
 
-import styles from "../styles/home.module.css";
-
 import Navbar from "../components/navbar";
 import Landing from "../components/landing";
 import About from "../components/about";
@@ -13,7 +11,7 @@ const Home: React.FC = () => {
   return (
     <>
       <Navbar></Navbar>
-      <div className={styles.homeContainer}>
+      <div>
       <div id="landing"><Landing /></div>
       <div id="about"><About /></div>
       <div id="projects"><Projects /></div>
