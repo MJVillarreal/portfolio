@@ -30,6 +30,12 @@
     padding-bottom: 2rem;
 }
 
+.landingButtons {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
 .customButton {
     background-color: var(--button-color) !important;
     color: var(--primary-text-color) !important;
@@ -46,6 +52,10 @@
   
 .buttonTextShort {
     display: none; 
+}
+
+.landingIcon {
+    color: var(--button-color) !important;
 }
 
 /* Responsive styles */

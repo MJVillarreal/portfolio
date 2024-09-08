@@ -8,43 +8,10 @@ import About from "../components/about";
 import Projects from "../components/projects";
 import Technologies from "../components/technologies";
 
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import GitHubIcon from "@mui/icons-material/GitHub";
-
 const Home: React.FC = () => {
-
-  const linkedinUrl = "https://www.linkedin.com/in/mariajose-villarreal/";
-  const githubUrl = "https://github.com/MJVillarreal";
 
   return (
     <>
-      <div className={styles.floatingContainer}>
-        <div className={styles.floatingButton}> + </div>
-        <div className={styles.elementContainer}>
-          <a
-            href={linkedinUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.floatElement}
-          >
-            <span>
-              <LinkedInIcon />
-            </span>
-          </a>
-
-          <a
-            href={githubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.floatElement}
-          >
-            <span>
-              <GitHubIcon />
-            </span>
-          </a>
-        </div>
-      </div>
-
       <Navbar></Navbar>
       <div className={styles.homeContainer}>
       <div id="landing"><Landing /></div>
