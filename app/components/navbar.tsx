@@ -136,7 +136,6 @@ const Navbar = () => {
                 anchorEl={lngDropdown}
                 open={open}
                 onClose={handleClose}
-                className={styles.languageMenu}
                 anchorOrigin={{
                   vertical: "bottom",
                   horizontal: "right",
