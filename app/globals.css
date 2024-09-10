@@ -1,18 +1,18 @@
 :root {
-  --primary-color: #000000;
+  --primary-color: #0E131F;
   --secondary-color: #1d3cff;
   --primary-text-color: #dcdcdd;
-  --background-color: #040820;
+  --background-color: #0F162D;
   --hover: #ffffff;
   --scroll: #020217;
   --font-mono: "Roboto", "Helvetica";
 }
 
 .light-mode {
-  --primary-color: #E7E7E7;
+  --primary-color: #DCFFFD;
     --secondary-color: #077D3A;
     --primary-text-color: #000000;
-    --background-color: #CFDCD5;
+    --background-color: #A7DFCD;
     --hover: #000000;
     --scroll: #95979b;
 }

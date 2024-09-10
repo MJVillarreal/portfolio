@@ -15,6 +15,10 @@
     "aboutCertificates": "My certificates", 
 
     "projectsTitle": "My projects",
+    "fullstack": "Completion certificate for the Fullstack Development course, awarded by Mercado Libre, Globant, and Digital House. This course provided comprehensive training in web and mobile development, preparing me to tackle current market challenges.",
+    "frontend": "Completion certificate for the Front End Specialist course, awarded by Mercado Libre, Globant, and Digital House. This course provided advanced training in front end development, enabling me to master the essential technologies and tools for creating interactive and engaging user interfaces.",
+    "pet": "Cambridge Level PET (Preliminary English Test) certificate with 'Pass with Distinction' grade. This certificate demonstrates advanced proficiency in English at the preliminary level, reflecting outstanding skills in understanding and communication in the language.",
+    "ellce": "Certificate from the English Language Learning Centre (ELLCe) with C1 level and an average of 9.50. This certificate attests to a high proficiency in English at the C1 level, highlighting outstanding performance across all assessed language skills.",
 
     "techTitle": "Technologies",
     "toolsTitle": "Tools"

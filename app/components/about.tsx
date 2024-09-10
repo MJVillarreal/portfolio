@@ -28,6 +28,7 @@ const About: React.FC = () => {
                 className={styles.ctd}
               ></img>
             </a>
+            <p>{t("fullstack")}</p>
           </div>
 
           <div className={styles.certificate}>
@@ -41,6 +42,7 @@ const About: React.FC = () => {
                 className={styles.ctd}
               ></img>
             </a>
+            <p>{t("frontend")}</p>
           </div>
         </div>
 
@@ -56,6 +58,7 @@ const About: React.FC = () => {
                 className={styles.language}
               ></img>
             </a>
+            <p>{t("pet")}</p>
           </div>
           <div className={styles.certificate}>
             <a
@@ -65,6 +68,7 @@ const About: React.FC = () => {
             >
               <img src="/images/ELLCe.jpg" className={styles.language}></img>
             </a>
+            <p>{t("ellce")}</p>
           </div>
         </div>
       </div>
