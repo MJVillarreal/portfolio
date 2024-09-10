@@ -14,14 +14,15 @@
 }
 
 .technoList {
-    background-color: var(--background-details);
-    border-radius: 2rem;
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    background-color: var(--background-color);
+    border: 1px solid var(--secondary-color);
+    border-radius: 2rem;
 }
 
 .technoListItem {

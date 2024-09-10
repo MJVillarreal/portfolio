@@ -21,7 +21,7 @@
 }
 
 .navbarItem p:hover {
-  color: var(--secondary-button-color);
+  color: var(--secondary-color);
   cursor: pointer;
 }
 
@@ -32,12 +32,8 @@
 }
 
 .languageButton:hover {
-  color: var(--secondary-button-color);
+  color: var(--secondary-color) !important;
   cursor: pointer;
-}
-
-.languageMenu {
-  color: red;
 }
 
 .lightModeButton {
@@ -48,7 +44,7 @@
 }
 
 .lightModeButton:hover {
-  color: var(--secondary-button-color);
+  color: var(--secondary-color) !important;
   cursor: pointer;
 }
 

@@ -18,7 +18,7 @@
 }
 
 .aboutTitle {
-    color: var(--secondary-button-color);
+    color: var(--secondary-color);
 }
 
 .aboutText {
@@ -37,13 +37,17 @@
 }
 
 .customButton {
-    background-color: var(--button-color) !important;
+    background-color: var(--secondary-color) !important;
     color: var(--primary-text-color) !important;
     padding: 0.8rem 2rem !important;
     border-radius: 4px !important;
     font-size: 1rem !important;
     width: 17rem;
     box-sizing: border-box;
+}
+
+.customButton:hover {
+    box-shadow: 0px 1px 6px 1px var(--secondary-color);
 }
 
 .buttonTextFull {
@@ -55,7 +59,7 @@
 }
 
 .landingIcon {
-    color: var(--button-color) !important;
+    color: var(--secondary-color) !important;
 }
 
 /* Responsive styles */

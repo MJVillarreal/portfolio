@@ -16,7 +16,9 @@
 
 .certificatesContainer {
     display: flex;
-    background-color: var(--background-details);
+    background-color: var(--background-color);
+    border: 1px solid var(--secondary-color);
+    border-radius: 2rem;
     padding: 2rem;
     padding-left: 7rem;
     border-radius: 2rem;
