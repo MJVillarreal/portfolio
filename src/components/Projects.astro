@@ -1,0 +1,50 @@
+---
+import React from "../icons/React.astro";
+import Material from "../icons/MaterialUI.astro";
+
+const TAGS = {
+  REACT: {
+    name: "React",
+    class: "border border-[#58C4DC] text-white",
+    icon: React,
+  },
+  MATERIAL: {
+    name: "Material UI",
+    class: "border border-[#0073E6] text-white",
+    icon: Material,
+  },
+};
+
+const PROJECTS = [
+  {
+    title: "Project 1",
+    description:
+      "This is a description of project 1.This is a description of project 1.This is a description of project 1.This is a description of project 1.This is a description of project 1.",
+    image: "/projects/Project-1.webp",
+    link: "https://example.com/project1",
+    github: "#",
+    tags: [TAGS.REACT, TAGS.MATERIAL],
+  },
+];
+---
+
+{
+  PROJECTS.map(({ title, description, image, link, github, tags }) => (
+    <article>
+      <h2 class="text-2xl font-semibold text-yellow-300 mb-2">{title}</h2>
+      <p class="text-lg mb-2 text-pretty">{description}</p>
+      <img class="rounded shadow-2xl shadow-white/10" src={image} alt={title} />
+      <a href={link}>View Project</a>
+      <a href={github}>View on GitHub</a>
+      <ul class="flex gap-x-2 flex-row mb-2">
+        {tags.map((tag) => (
+          <li>
+            <span class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}>
+              <tag.icon class="size-4" /> {tag.name}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </article>
+  ))
+}

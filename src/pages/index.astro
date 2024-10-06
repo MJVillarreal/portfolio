@@ -3,12 +3,14 @@ import Layout from "../layouts/Layout.astro";
 import Badge from "../components/Badge.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import SocialPill from "../components/SocialPill.astro";
+import Education from "../components/Education.astro";
+import Projects from "../components/Projects.astro";
 
 import LinkedInIcon from "../icons/LinkedIn.astro";
 import GitHubIcon from "../icons/GitHub.astro";
 import MailIcon from "../icons/Mail.astro";
-import Education from "../components/Education.astro";
 import School from "../icons/School.astro";
+import CodeIcon from "../icons/Code.astro";
 ---
 
 <Layout
@@ -16,11 +18,11 @@ import School from "../icons/School.astro";
   description="Contrata a María José Villarreal para crear tu aplicación web. Especializada en construir soluciones web responsivas, que combinan un diseño elegante con una navegación intuitiva."
 >
   <main class="px-4">
-    <SectionContainer id="top" class="py-44 pb-25">
+    <SectionContainer id="top" class="py-16 md:py-36">
       <img
         class="rounded-full size-12 mb-4"
-        src="/profile.png"
-        alt="profile picture"
+        src="/profile.webp"
+        alt="profile"
       />
       <h1 class="text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10">
         Hey, soy Majo
@@ -48,11 +50,19 @@ import School from "../icons/School.astro";
     </SectionContainer>
 
     <SectionContainer id="education">
-      <h2 class="text-2xl font-semibold mb-6 flex gap-x-3 items-center">
+      <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
         <School class="size-8"/>  
         Educación
       </h2>
       <Education />
+    </SectionContainer>
+
+    <SectionContainer id="projects">
+      <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
+        <CodeIcon class="size-8"/>  
+        Proyectos
+      </h2>
+      <Projects />
     </SectionContainer>
   </main>
 </Layout>
