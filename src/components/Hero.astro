@@ -1,0 +1,43 @@
+---
+import Badge from "../components/Badge.astro";
+import SocialPill from "../components/SocialPill.astro";
+
+import LinkedInIcon from "../icons/LinkedIn.astro";
+import GitHubIcon from "../icons/GitHub.astro";
+import MailIcon from "../icons/Mail.astro";
+---
+
+<div class="max-w-xl">
+  <div class="flex gap-4 mb-4">
+    <img class="rounded-full shadow-lg size-16" src="/profile.webp" alt="profile" />
+    <div class="flex items-center transition md:justify-center">
+      <Badge>Disponible para trabajar</Badge>
+    </div>
+  </div>
+</div>
+
+<h1
+  class="text-4xl font-bold tracking-tight sm:text-5xl text-gray-800 dark:text-white"
+>
+  Hola, soy Majo
+</h1>
+
+<p
+  class="mt-6 text-xl text-gray-800 dark:[&>strong]:text-green-500 [&>strong]:text-blue-800 [&>strong]:font-semibold dark:text-gray-300"
+>
+  <strong>Desarrolladora frontend</strong> de Mendoza, Argentina. Me especializo
+  en construir soluciones web responsivas, que combinan un diseño elegante con una
+  navegación intuitiva.
+</p>
+
+<nav class="flex flex-wrap gap-4 mt-8">
+  <SocialPill href="https://www.linkedin.com/in/mariajose-villarreal">
+    <LinkedInIcon class="size-4 md:size-6" /> LinkedIn
+  </SocialPill>
+  <SocialPill>
+    <MailIcon class="size-4 md:size-6" /> villarrealmariaj@gmail.com
+  </SocialPill>
+  <SocialPill href="https://github.com/MJVillarreal">
+    <GitHubIcon class="size-4 md:size-6" /> GitHub
+  </SocialPill>
+</nav>

@@ -1,14 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Badge from "../components/Badge.astro";
-import SectionContainer from "../components/SectionContainer.astro";
-import SocialPill from "../components/SocialPill.astro";
+
+import Hero from "../components/Hero.astro";
 import Education from "../components/Education.astro";
 import Projects from "../components/Projects.astro";
+import TitleSection from "../components/TitleSection.astro";
 
-import LinkedInIcon from "../icons/LinkedIn.astro";
-import GitHubIcon from "../icons/GitHub.astro";
-import MailIcon from "../icons/Mail.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+
 import School from "../icons/School.astro";
 import CodeIcon from "../icons/Code.astro";
 ---
@@ -19,50 +18,33 @@ import CodeIcon from "../icons/Code.astro";
 >
   <main class="px-4">
     <SectionContainer id="top" class="py-16 md:py-36">
-      <img
-        class="rounded-full size-12 mb-4"
-        src="/profile.webp"
-        alt="profile"
-      />
-      <h1 class="text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10">
-        Hey, soy Majo
-        <div class="flex items-center">
-          <Badge>Disponible para trabajar</Badge>
-        </div>
-      </h1>
-      <h2 class="text-xl lg:text-2xl text-wrap max-w-[700px]">
-        <span class="text-yellow-300">Desarrolladora frontend</span> de Mendoza,
-        Argentina. Me especializo en construir soluciones web responsivas, que combinan
-        un diseño elegante con una navegación intuitiva.
-      </h2>
-
-      <nav class="flex gap-4 mt-8 flex-wrap">
-        <SocialPill href="https://www.linkedin.com/in/mariajose-villarreal">
-          <LinkedInIcon class="size-4 md:size-6" /> LinkedIn
-        </SocialPill>
-        <SocialPill>
-          <MailIcon class="size-4 md:size-6" /> villarrealmariaj@gmail.com
-        </SocialPill>
-        <SocialPill href="https://github.com/MJVillarreal">
-          <GitHubIcon class="size-4 md:size-6" /> GitHub
-        </SocialPill>
-      </nav>
+      <Hero />
     </SectionContainer>
+  </main>
 
+  <div class="space-y-24">
     <SectionContainer id="education">
-      <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
-        <School class="size-8"/>  
-        Educación
-      </h2>
+      <TitleSection>
+        <School class="size-8" />
+        Education
+      </TitleSection>
       <Education />
     </SectionContainer>
 
     <SectionContainer id="projects">
-      <h2 class="text-3xl font-semibold mb-6 flex gap-x-3 items-center">
-        <CodeIcon class="size-8"/>  
+      <TitleSection>
+        <CodeIcon class="size-8" />
         Proyectos
-      </h2>
+      </TitleSection>
       <Projects />
     </SectionContainer>
-  </main>
+
+    <!-- <SectionContainer id="sobre-mi">
+      <TitleSection>
+        <ProfileCheck class="size-8" />
+        Sobre mí
+      </TitleSection>
+      <AboutMe />
+    </SectionContainer> -->
+  </div>
 </Layout>
