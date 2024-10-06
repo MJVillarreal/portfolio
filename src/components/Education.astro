@@ -1,0 +1,36 @@
+---
+import EducationItem from "./EducationItem.astro";
+
+const EDUCATION = [
+  {
+    title: "Ingeniería en Sistemas de Información",
+    place: "Universidad Tecnológica Nacional - Facultad Regional Mendoza",
+    date: "En curso...",
+    description:
+      "Actualmente estoy cursando la carrera de Ingeniería en Sistemas en la Universidad Tecnológica Nacional, donde estoy desarrollando una sólida comprensión en programación, análisis de sistemas y gestión de proyectos tecnológicos.",
+  },
+  {
+    title: "Frontend Specialist",
+    place: "Globant, Mercado Libre, Digital House",
+    date: "Enero 2024",
+    description:
+      "Como especialista en desarrollo frontend, me enfoco en la creación de interfaces atractivas y funcionales, mejorando la usabilidad y la interacción del usuario en diversas plataformas.",
+  },
+  {
+    title: "Professional Developer",
+    place: "Globant, Mercado Libre, Digital House",
+    date: "Diciembre 2022",
+    description:
+      "En mi rol como desarrollador profesional, contribuyo al ciclo completo de desarrollo de software, asegurando que las aplicaciones funcionen de manera fluida y satisfagan las necesidades del usuario.",
+  },
+  
+];
+---
+
+<ol class="relative border-s border-gray-200 ml-3">
+  {EDUCATION.map((education) => 
+    <li class="mb-10 ms-4">
+        <EducationItem {...education}/>
+    </li>
+  )}
+</ol>

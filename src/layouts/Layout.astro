@@ -1,6 +1,7 @@
 ---
 import "@fontsource-variable/onest";
 import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 
 interface Props {
   title: string;
@@ -21,25 +22,40 @@ const { description, title } = Astro.props;
     <title>{title}</title>
   </head>
 
-  <body>
-    <div class="relative h-full w-full bg-slate-950"><div class="absolute bottom-0 left-[-20%] right-0 top-[-10%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))]"></div><div class="absolute bottom-0 right-[-20%] top-[-10%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))]"></div></div>
+  <body class="px-4">
+    <div class="relative h-full w-full bg-slate-950">
+      <div
+        class="absolute bottom-0 left-[-20%] right-0 top-[-10%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))]"
+      >
+      </div><div
+        class="absolute bottom-0 right-[-20%] top-[-10%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))]"
+      >
+      </div>
+    </div>
     <Header />
     <slot />
+    <Footer />
+    <style is:global>
+      :root {
+        color-scheme: light dark;
+      }
+      html {
+        font-family: "Onest Variable", system-ui, sans-serif;
+        scroll-behavior: smooth;
+      }
+      body {
+        background-color: #050505;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+      }
+    </style>
   </body>
 </html>
-
-<style is:global>
-  :root {
-    color-scheme: light dark;
-  }
-  html {
-    font-family: "Onest Variable", system-ui, sans-serif;
-  }
-  body {
-    background-color: #050505;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
-</style>
