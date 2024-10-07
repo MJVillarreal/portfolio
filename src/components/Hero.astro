@@ -53,6 +53,6 @@ import MailIcon from "../icons/Mail.astro";
 
   document.addEventListener('DOMContentLoaded', () => {
   const mailButton = document.getElementById('mail-button');
-  mailButton.addEventListener('click', handleCopy);
+  mailButton?.addEventListener('click', handleCopy);
 });
 </script>
