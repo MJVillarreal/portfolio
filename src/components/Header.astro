@@ -3,23 +3,23 @@ import ThemeToggle from "./ThemeToggle.astro"
 
 const navItems = [
   {
-    title: "Inicio",
-    label: "inicio",
+    title: "Home",
+    label: "home",
     url: "/#top",
   },
   {
-    title: "Educación",
-    label: "educacion",
+    title: "Education",
+    label: "education",
     url: "/#education",
   },
   {
-    title: "Proyectos",
-    label: "proyectos",
+    title: "Projects",
+    label: "projects",
     url: "/#projects",
   },
   {
-    title: "Sobre mí",
-    label: "sobre-mi",
+    title: "About me",
+    label: "about-me",
     url: "/#about",
   },
 ]
@@ -52,18 +52,19 @@ const navItems = [
     const navItems = document.querySelectorAll("header nav a")
 
     const callback = (entries: any[]) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          navItems.forEach((item) => {
-            if (item.getAttribute("aria-label") == entry.target.id) {
-              item.classList.add("text-blue-500")
-            } else {
-              item.classList.remove("text-blue-500")
-            }
-          })
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      navItems.forEach((item) => {
+        const isDarkMode = document.documentElement.classList.contains('dark');
+        if (item.getAttribute("aria-label") === entry.target.id) {
+          item.classList.add(isDarkMode ? "text-green-500" : "text-blue-500");
+        } else {
+          item.classList.remove("text-blue-500", "text-green-500");
         }
-      })
+      });
     }
+  });
+};
 
     const observer = new IntersectionObserver(callback, {
       root: null,
