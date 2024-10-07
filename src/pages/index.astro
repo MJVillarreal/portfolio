@@ -1,15 +1,17 @@
 ---
 import Layout from "../layouts/Layout.astro";
 
+import TitleSection from "../components/TitleSection.astro";
 import Hero from "../components/Hero.astro";
 import Education from "../components/Education.astro";
 import Projects from "../components/Projects.astro";
-import TitleSection from "../components/TitleSection.astro";
+import AboutMe from "../components/About.astro";
 
 import SectionContainer from "../components/SectionContainer.astro";
 
 import School from "../icons/School.astro";
 import CodeIcon from "../icons/Code.astro";
+import ProfileCheck from "../icons/ProfileCheck.astro";
 ---
 
 <Layout
@@ -34,17 +36,17 @@ import CodeIcon from "../icons/Code.astro";
     <SectionContainer id="projects">
       <TitleSection>
         <CodeIcon class="size-8" />
-        Proyectos
+        Projects
       </TitleSection>
       <Projects />
     </SectionContainer>
 
-    <!-- <SectionContainer id="sobre-mi">
+    <SectionContainer id="about">
       <TitleSection>
         <ProfileCheck class="size-8" />
-        Sobre mí
+        About me
       </TitleSection>
       <AboutMe />
-    </SectionContainer> -->
+    </SectionContainer>
   </div>
 </Layout>
