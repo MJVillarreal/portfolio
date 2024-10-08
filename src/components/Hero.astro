@@ -47,9 +47,16 @@ import MailIcon from "../icons/Mail.astro";
 
 <script>
    function handleCopy() {
-    navigator.clipboard.writeText("villarrealmariaj@gmail.com");
-    alert("Email address copied to clipboard!");
-  }
+  const text = "villarrealmariaj@gmail.com";
+  const textArea = document.createElement("textarea");
+  textArea.value = text;
+  document.body.appendChild(textArea);
+  textArea.select();
+  document.execCommand("copy");
+  document.body.removeChild(textArea);
+  alert("Email address copied to clipboard!");
+}
+
 
   document.addEventListener('DOMContentLoaded', () => {
   const mailButton = document.getElementById('mail-button');
