@@ -12,11 +12,15 @@ import SectionContainer from "../components/SectionContainer.astro";
 import School from "../icons/School.astro";
 import CodeIcon from "../icons/Code.astro";
 import ProfileCheck from "../icons/ProfileCheck.astro";
----
 
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
 <Layout
-  title="Maria Jose Villarreal - Web developer"
-  description="Contrata a María José Villarreal para crear tu aplicación web. Especializada en construir soluciones web responsivas, que combinan un diseño elegante con una navegación intuitiva."
+  title={t('title')}
+  description={t('description')}
 >
   <main class="px-4">
     <SectionContainer id="top" class="py-16 md:py-36">

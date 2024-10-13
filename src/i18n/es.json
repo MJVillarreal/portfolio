@@ -1,0 +1,39 @@
+{
+    "title": "Maria Jose Villarreal - Desarrolladora Web",
+    "description": "Hire Maria Jose Villarreal to create your web application. She specializes in building responsive web solutions that combine elegant design with intuitive navigation.",
+
+    "home": "Inicio",
+    "education": "Educación",
+    "projects": "Proyectos",
+    "about": "Sobre mí",
+
+    "badge": "Disponible para trabajar",
+    "greeting": "Hola! Soy Majo",
+    "front":"Desarrolladora frontend",
+    "myDescription": " de Mendoza, Argentina. Me especializo en construir soluciones web responsivas, que combinan un diseño elegante con una navegación intuitiva.",
+    "resumeURL": "/CV-MariaJoseVillarreal.pdf",
+    "resume": "Descargar CV",
+    "alert": "Dirección dorreo electrónico copiada al portapapeles!",
+
+    "educationTitle1": "Ingeniería en Sistemas de Información",
+    "date1": "En progreso...",
+    "educationDescription1": "Actualmente estoy cursando la carrera Ingeniería en Sistemas de Información en la Universidad Tecnológica Nacional, donde estoy desarrollando una sólida comprensión de la programación, el análisis de sistemas y la gestión de proyectos tecnológicos.",
+
+    "educationTitle2": "Especialista Frontend",
+    "date2": "Enero 2024",
+    "educationDescription2": "Como especialista en desarrollo frontend, me enfoco en crear interfaces atractivas y funcionales, mejorando la usabilidad y la interacción del usuario en diversas plataformas.",
+
+    "educationTitle3": "Desarrolladora Professional",
+    "date3": "Diciembre 2022",
+    "educationDescription3": "En mi papel como desarrollador profesional, contribuyo al ciclo completo de desarrollo de software, asegurando que las aplicaciones funcionen sin problemas y satisfagan las necesidades del usuario.",
+
+    "projectDemo": "DEMO",
+    "projectCode": "CÓDIGO",
+
+    "projectTitle1": "Proyecto 1",
+    "projectDescription1": "La descripción del proyecto 1. La descripción del proyecto 1. La descripción del proyecto 1. La descripción del proyecto 1. La descripción del proyecto 1. La descripción del proyecto 1. La descripción del proyecto 1. ",
+
+    "projectTitle2": "Proyecto 2",
+    "projectDescription2": "La descripción del proyecto 2. La descripción del proyecto 2. La descripción del proyecto 2. La descripción del proyecto 2. La descripción del proyecto 2. La descripción del proyecto 2. La descripción del proyecto 2. "
+  }
+  

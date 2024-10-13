@@ -2,6 +2,8 @@
 import LanguageIcon from "../icons/Language.astro";
 
 const LANGUAGES = ["Español", "English"];
+
+import { languages } from "../i18n/ui";
 ---
 
 <div class="relative ml-1 mr-1">
@@ -10,8 +12,7 @@ const LANGUAGES = ["Español", "English"];
     id="language-toggle-btn"
     class="appearance-none border-none flex hover:scale-125 transition"
   >
-    <span class="sr-only">Elige el tema</span>
-    <LanguageIcon class="size-5 transition-all" />
+    <LanguageIcon class="size-5 transition-all hover:text-blue-500 dark:hover:text-green-500" />
   </button>
   <div
     transition:persist
@@ -20,9 +21,9 @@ const LANGUAGES = ["Español", "English"];
   >
     <ul>
       {
-        LANGUAGES.map((language) => (
+        Object.entries(languages).map(([lang, label]) => (
           <li class="px-2 py-1.5 cursor-default hover:bg-neutral-400/40 dark:hover:bg-gray-500/50 rounded-sm">
-            {language}
+            {label}
           </li>
         ))
       }
@@ -64,10 +65,9 @@ document.addEventListener("click", () => {
 });
 
 languagesMenu.addEventListener("click", (e) => {
-  if (e.target.tagName === 'LI') {
-    const selectedLanguage = e.target.innerText === "Español" ? "es" : "en";
-    localStorage.setItem("language", selectedLanguage);
-    window.location.reload();
-  }
-});
+    if (e.target.tagName === 'LI') {
+      const selectedLanguage = e.target.innerText === "Español" ? "es" : "en";
+      window.location.href = selectedLanguage === "en" ? '/' : `/${selectedLanguage}/`; 
+    }
+  });
 </script>

@@ -73,11 +73,15 @@ const TAGS = {
   },
 };
 
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
 const PROJECTS = [
   {
-    title: "Project 1",
-    description:
-      "This is a description of project 1.This is a description of project 1.This is a description of project 1.This is a description of project 1.This is a description of project 1.",
+    title: t('projectTitle1'),
+    description: t('projectDescription1'),
     image: "/projects/Project-1.webp",
     link: "https://example.com/project1",
     github: "https://github.com/MJVillarreal/portfolio-v2",
@@ -91,9 +95,8 @@ const PROJECTS = [
     ],
   },
   {
-    title: "Project 2",
-    description:
-      "This is a description of project 222222222222222. This is a description of project 222222222222222222222.This is a description of project 1.SecondSecondSe condSecondSecondS econdS econdSe condSeco ndSecondSecond SecondSe condSecond SecondSecond",
+    title: t('projectTitle2'),
+    description: t('projectDescription2'),
     image: "/projects/Project-1.webp",
     link: "https://example.com/project2",
     github: "https://github.com/MJVillarreal/portfolio",
@@ -120,10 +123,10 @@ const PROJECTS = [
         <p class="text-lg text-pretty">{description}</p>
         <nav class="w-full flex flex-col gap-4 sm:flex-row justify-between ">
           <LinksPill href={github}>
-            <GitHubIcon class="size-4 md:size-5" /> CODE
+            <GitHubIcon class="size-4 md:size-5" /> {t('projectCode')}
           </LinksPill>
           <LinksPill href={link}>
-            <DemoIcon class="size-4 md:size-5" /> DEMO
+            <DemoIcon class="size-4 md:size-5" /> {t('projectDemo')}
           </LinksPill>
         </nav>
         <ul class="flex gap-x-2 flex-row mb-2">

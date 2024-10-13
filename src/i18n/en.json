@@ -1,0 +1,40 @@
+{
+    "title": "Maria Jose Villarreal - Web Developer",
+    "description": "Contrata a Maria Jose Villarreal para crear tu aplicación web. Especializada en construir soluciones web responsivas, que combinan un diseño elegante con una navegación intuitiva.",
+
+    "home": "Home",
+    "education": "Education",
+    "projects": "Projects",
+    "about": "About me",
+
+    "badge": "Available for hiring",
+    "greeting": "Hello there, I'm Majo",
+    "front":"Frontend developer",
+    "myDescription": " from Mendoza, Argentina. I specialize in building responsive web solutions that combine sleek design with intuitive navigation.",
+    "resumeURL": "/Resume-VillarrealMariaJose.pdf",
+    "resume": "Download Resume",
+    "alert": "Email address copied to clipboard!",
+
+    "educationTitle1": "Systems Engineering",
+    "date1": "In progress...",
+    "educationDescription1": "I am currently pursuing a degree in Systems Engineering at the Universidad Tecnológica Nacional, where I am developing a solid understanding of programming, systems analysis, and technology project management.",
+
+    "educationTitle2": "Frontend Specialist",
+    "date2": "January 2024",
+    "educationDescription2": "As a frontend development specialist, I focus on creating attractive and functional interfaces, improving usability and user interaction across various platforms.", 
+
+    "educationTitle3": "Professional Developer",
+    "date3": "December 2022",
+    "educationDescription3": "In my role as a professional developer, I contribute to the complete software development cycle, ensuring that applications run smoothly and meet user needs.",
+
+    "projectDemo": "DEMO",
+    "projectCode": "CODE",
+
+    "projectTitle1": "Project 1",
+    "projectDescription1": "This is a description of project 1.This is a description of project 1.This is a description of project 1.This is a description of project 1.This is a description of project 1.",
+
+    "projectTitle2": "Project 2",
+    "projectDescription2": "This is a description of project 2.This is a description of project 2.This is a description of project 2.This is a description of project 2.This is a description of project 2."
+    
+  }
+  

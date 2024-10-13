@@ -1,27 +1,29 @@
 ---
 import EducationItem from "./EducationItem.astro";
 
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
 const EDUCATION = [
   {
-    title: "Systems Engineering",
+    title: t('educationTitle1'),
     place: "Universidad Tecnológica Nacional - Facultad Regional Mendoza",
-    date: "In progress...",
-    description:
-      "I am currently pursuing a degree in Systems Engineering at the Universidad Tecnológica Nacional, where I am developing a solid understanding of programming, systems analysis, and technology project management.",
+    date: t('date1'),
+    description: t('educationDescription1'),
   },
   {
-    title: "Frontend Specialist",
+    title: t('educationTitle2'),
     place: "Globant, Mercado Libre, Digital House",
-    date: "January 2024",
-    description:
-      "As a frontend development specialist, I focus on creating attractive and functional interfaces, improving usability and user interaction across various platforms.",
+    date: t('date2'),
+    description: t('educationDescription2'),
   },
   {
-    title: "Professional Developer",
+    title: t('educationTitle3'),
     place: "Globant, Mercado Libre, Digital House",
-    date: "December 2022",
-    description:
-      "In my role as a professional developer, I contribute to the complete software development cycle, ensuring that applications run smoothly and meet user needs.",
+    date: t('date3'),
+    description: t('educationDescription3'),
   },
   
 ];
