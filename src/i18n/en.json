@@ -34,7 +34,15 @@
     "projectDescription1": "This web application allows users to explore the Marvel Cinematic Universe by mapping characters and movies interactively. With an easy search feature, users can find specific information about characters and movies. Additionally, it features an attractive design powered by react-slick for smooth navigation.",
 
     "projectTitle2": "DH Odonto",
-    "projectDescription2": "This app lets users switch between dark and light themes for a personalized look. Users can browse and click on dentists to view detailed profiles fetched from an API. They can also mark favorite dentists or remove them from the list with ease."
+    "projectDescription2": "This app lets users switch between dark and light themes for a personalized look. Users can browse and click on dentists to view detailed profiles fetched from an API. They can also mark favorite dentists or remove them from the list with ease.",
+
+    "aboutParagraph1": "My name is María José Villarreal, and I am currently studying ",
+    "aboutParagraphStrong1": "Systems Engineering",
+    "aboutParagraph1-2": ". Since discovering the world of programming, I have been fascinated by how web applications can transform ideas into interactive experiences.",
+
+    "aboutParagraph2": "I have been learning technologies like HTML, CSS, and JavaScript, and I am excited to begin my career as a ",
+    "aboutParagraphStrong2": "Frontend developer",
+    "aboutParagraph2-2": ". My goal is to gain practical experience in a professional environment and contribute to projects that enhance user experience."
     
   }
   
