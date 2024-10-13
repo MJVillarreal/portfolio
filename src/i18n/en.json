@@ -30,11 +30,11 @@
     "projectDemo": "DEMO",
     "projectCode": "CODE",
 
-    "projectTitle1": "Project 1",
-    "projectDescription1": "This is a description of project 1.This is a description of project 1.This is a description of project 1.This is a description of project 1.This is a description of project 1.",
+    "projectTitle1": "Marvel Wiki",
+    "projectDescription1": "This web application allows users to explore the Marvel Cinematic Universe by mapping characters and movies interactively. With an easy search feature, users can find specific information about characters and movies. Additionally, it features an attractive design powered by react-slick for smooth navigation.",
 
-    "projectTitle2": "Project 2",
-    "projectDescription2": "This is a description of project 2.This is a description of project 2.This is a description of project 2.This is a description of project 2.This is a description of project 2."
+    "projectTitle2": "DH Odonto",
+    "projectDescription2": "This app lets users switch between dark and light themes for a personalized look. Users can browse and click on dentists to view detailed profiles fetched from an API. They can also mark favorite dentists or remove them from the list with ease."
     
   }
   
