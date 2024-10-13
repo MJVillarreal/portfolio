@@ -1,8 +1,18 @@
+---
+import { Tooltips } from "astro-tooltips";
+
+let tooltipText = "Copy email to clipboard";
+---
+
 {
   Astro.props.copy ? (
+  <Tooltips interactive={false} delay={[15, 100]} />
    <button
    id="mail-button"
       class="inline-flex items-center justify-center gap-2 px-4 py-1 text-gray-800 transition border border-gray-800 rounded-full dark:border-gray-300 dark:text-gray-300 text-md md:py-2 md:px-4 text-xs lg:text-base hover:bg-black/15 hover:scale-110 dark:hover:bg-white/5 group max-w-fit focus:outline-none focus-visible:outline-none"
+      title={tooltipText}
+      data-tooltip={tooltipText}
+      data-tooltip-placement="bottom"
     >
       <slot />
     </button>
@@ -17,3 +27,28 @@
     </a>
   )
 }
+
+
+<script>
+  function handleCopy() {
+    const text = "villarrealmariaj@gmail.com"; // Your actual email
+    const textArea = document.createElement("textarea");
+    textArea.value = text;
+    document.body.appendChild(textArea);
+    textArea.select();
+    document.execCommand("copy");
+    document.body.removeChild(textArea);
+  }
+
+  // Attach event listeners on load
+  document.addEventListener('DOMContentLoaded', () => {
+    const mailButton = document.getElementById('mail-button');
+    if (mailButton) {
+      mailButton.addEventListener('click', () => {
+        handleCopy();
+        alert("Email address copied to clipboard!");
+        mailButton.dataset.tooltip = "Copied!";
+      });
+    }
+  });
+</script>

@@ -48,22 +48,3 @@ const t = useTranslations(lang);
     <MailIcon class="size-4 md:size-6" /> villarrealmariaj@gmail.com
   </SocialPill>
 </nav>
-
-<script>
-   function handleCopy() {
-  const text = "villarrealmariaj@gmail.com";
-  const textArea = document.createElement("textarea");
-  textArea.value = text;
-  document.body.appendChild(textArea);
-  textArea.select();
-  document.execCommand("copy");
-  document.body.removeChild(textArea);
-  alert("Email address copied to clipboard!");
-}
-
-
-  document.addEventListener('DOMContentLoaded', () => {
-  const mailButton = document.getElementById('mail-button');
-  mailButton?.addEventListener('click', handleCopy);
-});
-</script>
