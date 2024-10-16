@@ -1,19 +1,19 @@
 ---
-import LinksPill from "../components/LinksPill.astro";
-import DemoIcon from "../icons/Demo.astro";
-import GitHubIcon from "../icons/GitHub.astro";
+import LinksPill from "./LinksPill.astro";
+import DemoIcon from "../../icons/ProjectIcons/Demo.astro";
+import GitHubIcon from "../../icons/ProjectIcons/GitHub.astro";
 
-import CSS from "../icons/CSS.astro";
-import HTML from "../icons/HTML.astro";
-import Javascript from "../icons/Javascript.astro";
-import Material from "../icons/MaterialUI.astro";
-import Mongo from "../icons/Mongo.astro";
-import MySQL from "../icons/MySQL.astro";
-import Next from "../icons/Nextjs.astro";
-import Node from "../icons/Node.astro";
-import React from "../icons/React.astro";
-import Tailwind from "../icons/Tailwind.astro";
-import Typescript from "../icons/Typescript.astro";
+import CSS from "../../icons/ProjectIcons/CSS.astro";
+import HTML from "../../icons/ProjectIcons/HTML.astro";
+import Javascript from "../../icons/ProjectIcons/Javascript.astro";
+import Material from "../../icons/ProjectIcons/MaterialUI.astro";
+import Mongo from "../../icons/ProjectIcons/Mongo.astro";
+import MySQL from "../../icons/ProjectIcons/MySQL.astro";
+import Next from "../../icons/ProjectIcons/Nextjs.astro";
+import Node from "../../icons/ProjectIcons/Node.astro";
+import React from "../../icons/ProjectIcons/React.astro";
+import Tailwind from "../../icons/ProjectIcons/Tailwind.astro";
+import Typescript from "../../icons/ProjectIcons/Typescript.astro";
 
 const TAGS = {
   CSS: {
@@ -84,7 +84,7 @@ const TAGS = {
   },
 };
 
-import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
