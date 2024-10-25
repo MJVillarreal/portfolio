@@ -1,7 +1,12 @@
 ---
 import { Tooltips } from "astro-tooltips";
 
-let tooltipText = "Copy email to clipboard";
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+let tooltipText =  t("tooltip");
 ---
 
 {

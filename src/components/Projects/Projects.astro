@@ -14,6 +14,7 @@ import Node from "../../icons/ProjectIcons/Node.astro";
 import React from "../../icons/ProjectIcons/React.astro";
 import Tailwind from "../../icons/ProjectIcons/Tailwind.astro";
 import Typescript from "../../icons/ProjectIcons/Typescript.astro";
+import Vite from "../../icons/ProjectIcons/Vite.astro";
 
 const TAGS = {
   CSS: {
@@ -82,6 +83,12 @@ const TAGS = {
       "border border-[#3178C6] text-black dark:bg-[#23272F] dark:text-white",
     icon: Typescript,
   },
+  VITE: {
+    name: "Vite",
+    class:
+      "border border-[#AF45FE] text-black dark:bg-[#23272F] dark:text-white",
+    icon: Vite,
+  },
 };
 
 import { getLangFromUrl, useTranslations } from "../../i18n/utils";
@@ -93,18 +100,18 @@ const PROJECTS = [
   {
     title: t("projectTitle1"),
     description: t("projectDescription1"),
-    image: "/projects/Marvel-Wiki.webp",
-    link: "https://marvel-wiki-tau.vercel.app",
-    github: "https://github.com/MJVillarreal/Marvel-Wiki",
-    tags: [TAGS.CSS, TAGS.HTML, TAGS.JAVASCRIPT, TAGS.REACT, TAGS.MATERIAL],
+    image: "/projects/Notflix.webp",
+    link: "https://notflix-azure.vercel.app/",
+    github: "https://github.com/MJVillarreal/NOTFLIX",
+    tags: [TAGS.VITE, TAGS.REACT, TAGS.JAVASCRIPT, TAGS.CSS, TAGS.HTML],
   },
   {
     title: t("projectTitle2"),
     description: t("projectDescription2"),
-    image: "/projects/DHOdonto.webp",
-    link: "https://ctd-esp-fe3-final-one-brown.vercel.app/home",
-    github: "https://github.com/MJVillarreal/ctd-esp-fe3-final",
-    tags: [TAGS.CSS, TAGS.HTML, TAGS.JAVASCRIPT, TAGS.REACT],
+    image: "/projects/Marvel-Wiki.webp",
+    link: "https://marvel-wiki-tau.vercel.app",
+    github: "https://github.com/MJVillarreal/Marvel-Wiki",
+    tags: [TAGS.REACT, TAGS.MATERIAL, TAGS.JAVASCRIPT, TAGS.CSS, TAGS.HTML],
   },
 ];
 ---

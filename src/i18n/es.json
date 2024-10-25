@@ -13,6 +13,7 @@
     "myDescription": " de Mendoza, Argentina. Me especializo en construir soluciones web responsivas, que combinan un diseño elegante con una navegación intuitiva.",
     "resumeURL": "/CV-MariaJoseVillarreal.pdf",
     "resume": "Descargar CV",
+    "tooltip": "Copiar dirección de correo al portapapeles",
     "alert": "Dirección dorreo electrónico copiada al portapapeles!",
 
     "educationTitle1": "Ingeniería en Sistemas de Información",
@@ -30,11 +31,11 @@
     "projectDemo": "DEMO",
     "projectCode": "CÓDIGO",
 
-    "projectTitle1": "Marvel Wiki",
-    "projectDescription1": "Esta aplicación web permite a los usuarios explorar el universo cinematográfico de Marvel, mapeando personajes y películas de forma interactiva. Con una búsqueda fácil, los usuarios pueden encontrar información específica sobre persoanjes y películas. Además, cuenta con un diseño atractivo gracias a la implementación de react-slick para una navegación fluida.",
+    "projectTitle1": "Notflix",
+    "projectDescription1": "Esta aplicación web es un clon de Netflix que permite a los usuarios buscar películas y ver sus trailers. Construída con Vite para una experiencia de desarrollo rápida y Firebase para una autenticación de usuarios fluida, ofrece una interfaz elegante para una fácil navegación. Utilizando la API de The Movie Database, los usuarios pueden explorar títulos mientras disfrutan de un diseño responsivo que mejora la experiencia de visualización.", 
 
-    "projectTitle2": "DH Odonto",
-    "projectDescription2": "Esta aplicación permite a los usuarios alternar entre temas oscuros y claros para un aspecto personalizado. Los usuarios pueden navegar y hacer clic en dentistas para ver perfiles detallados obtenidos de una API. También pueden marcar dentistas favoritos o eliminarlos de la lista con facilidad.", 
+    "projectTitle2": "Marvel Wiki",
+    "projectDescription2": "Esta aplicación web permite a los usuarios explorar el universo cinematográfico de Marvel, mapeando personajes y películas de forma interactiva. Con una búsqueda fácil, los usuarios pueden encontrar información específica sobre persoanjes y películas. Además, cuenta con un diseño atractivo gracias a la implementación de react-slick para una navegación fluida.",
 
     "aboutParagraph1": "Me llamo María José Villarreal y actualmente estoy estudiando ",
     "aboutParagraphStrong1": "Ingeniería en Sistemas de Información",

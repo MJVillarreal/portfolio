@@ -13,6 +13,7 @@
     "myDescription": " from Mendoza, Argentina. I specialize in building responsive web solutions that combine sleek design with intuitive navigation.",
     "resumeURL": "/Resume-VillarrealMariaJose.pdf",
     "resume": "Download Resume",
+    "tooltip": "Copy email to clipboard",
     "alert": "Email address copied to clipboard!",
 
     "educationTitle1": "Systems Engineering",
@@ -29,12 +30,12 @@
 
     "projectDemo": "DEMO",
     "projectCode": "CODE",
+    
+    "projectTitle1": "Notflix",
+    "projectDescription1": "This web application is a Netflix clone that lets users browse for movies and stream their trailers. Built with Vite for a fast development experience and Firebase for seamless user authentication, it offers a sleek interface for easy navigation. Leveraging The Movie Database API, users can browse for titles while enjoying a responsive design that enhances the viewing experience.",
 
-    "projectTitle1": "Marvel Wiki",
-    "projectDescription1": "This web application allows users to explore the Marvel Cinematic Universe by mapping characters and movies interactively. With an easy search feature, users can find specific information about characters and movies. Additionally, it features an attractive design powered by react-slick for smooth navigation.",
-
-    "projectTitle2": "DH Odonto",
-    "projectDescription2": "This app lets users switch between dark and light themes for a personalized look. Users can browse and click on dentists to view detailed profiles fetched from an API. They can also mark favorite dentists or remove them from the list with ease.",
+    "projectTitle2": "Marvel Wiki",
+    "projectDescription2": "This web application allows users to explore the Marvel Cinematic Universe by mapping characters and movies interactively. With an easy search feature, users can find specific information about characters and movies. Additionally, it features an attractive design powered by react-slick for smooth navigation.",
 
     "aboutParagraph1": "My name is María José Villarreal, and I am currently studying ",
     "aboutParagraphStrong1": "Systems Engineering",
