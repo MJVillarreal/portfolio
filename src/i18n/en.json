@@ -1,8 +1,8 @@
 {
   "resumeURL": "/Resume-VillarrealMariaJose.pdf",
-  "heroLead": "From Mendoza, Argentina. I develop web applications that combine thoughtful design with intuitive navigation, and I turn manual processes into tools that make everyday work simpler.",
-  "aboutP1": "I'm María José, though everyone calls me Majo. I study Systems Engineering at UTN and work in software development, with a particular interest in building tools that solve concrete problems.",
-  "aboutP2": "I started with frontend, working with HTML, CSS and JavaScript, and today I develop across the whole stack, from the interface to the database and the deploy. I'm especially interested in understanding how the people who will use an application work, and finding ways to make their tasks simpler and more efficient.",
+  "heroLead": "From Mendoza, Argentina, I develop web applications that combine thoughtful design with intuitive navigation. I also turn manual processes into tools that simplify everyday work.",
+  "aboutP1": "I'm María José, though everyone calls me Majo. I'm studying Information Systems Engineering at UTN and working in software development, with an interest in building tools that solve practical problems.",
+  "aboutP2": "I started out in frontend development with HTML, CSS, and JavaScript. Today, I work across the stack, from the user interface to the database and deployment. I like understanding how people work and finding ways to make their tasks easier through software.",
   "contactLead": "Have an opportunity or a project in mind? Get in touch!",
   "projectTitle1": "Notflix",
   "projectTitle2": "Marvel Wiki",
@@ -37,7 +37,7 @@
   "fact1": "Mendoza, Argentina",
   "fact2": "Systems Engineering · UTN",
   "fact3": "Systems Technician @ Grupo Broda",
-  "fact4": "Spanish (native) · English (bilingual, C1)",
+  "fact4": "Spanish (native) · English (C1)",
   "profileAlt": "Photo of María José Villarreal",
   "sticker": "hi!",
   "contactTitle": "Let’s talk",
@@ -57,5 +57,5 @@
   "factNowLabel": "Currently",
   "factLangLabel": "Languages",
   "viewCertificate": "View certificate",
-  "aboutP3": "Outside of programming, I took part in Space Camp at the U.S. Space & Rocket Center, where my team received the Most Outstanding Team award, and I volunteered at the FIFA U-20 World Cup in Argentina."
+  "aboutP3": "Outside of programming, I attended Space Camp at the U.S. Space & Rocket Center, where my team received the Most Outstanding Team award, and volunteered at the FIFA U-20 World Cup in Argentina."
 }

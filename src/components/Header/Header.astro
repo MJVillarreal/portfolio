@@ -1,5 +1,7 @@
 ---
 import ThemeToggle from "./ThemeToggle.astro";
+import ArgentinaFlag from "../../icons/Flags/Argentina.astro";
+import UnitedKingdomFlag from "../../icons/Flags/UnitedKingdom.astro";
 
 import { getRelativeLocaleUrl } from "astro:i18n";
 import { languages } from "../../i18n/ui";
@@ -62,9 +64,15 @@ const navItems = [
         lang={otherLang}
         title={t("switchLanguage")}
         aria-label={t("switchLanguage")}
-        class="grid size-9 place-items-center rounded-full font-mono text-xs font-semibold uppercase text-muted transition hover:bg-ink/5 hover:text-ink"
+        class="group grid size-9 place-items-center rounded-full transition hover:bg-ink/5"
       >
-        {otherLang}
+        {
+          otherLang === "es" ? (
+            <ArgentinaFlag class="h-3.5 w-[22px] rounded-[3px] shadow-sm ring-1 ring-ink/10 transition group-hover:scale-110" />
+          ) : (
+            <UnitedKingdomFlag class="h-3.5 w-[22px] rounded-[3px] shadow-sm ring-1 ring-ink/10 transition group-hover:scale-110" />
+          )
+        }
       </a>
       <ThemeToggle />
     </div>

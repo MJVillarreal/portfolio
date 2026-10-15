@@ -1,8 +1,8 @@
 {
   "resumeURL": "/CV-MariaJoseVillarreal.pdf",
   "heroLead": "De Mendoza, Argentina. Desarrollo aplicaciones web que combinan un diseño cuidado con una navegación intuitiva, y transformo procesos manuales en herramientas que simplifican el trabajo cotidiano.",
-  "aboutP1": "Soy María José, aunque todos me dicen Majo. Estudio Ingeniería en Sistemas en la UTN y trabajo en desarrollo de software, con especial interés en crear herramientas que resuelvan problemas concretos.",
-  "aboutP2": "Empecé por el frontend, trabajando con HTML, CSS y JavaScript, y hoy desarrollo en todo el stack, desde la interfaz hasta la base de datos y el deploy. Me interesa especialmente entender cómo trabajan las personas que van a usar una aplicación y encontrar formas de hacer sus tareas más simples y eficientes.",
+  "aboutP1": "Soy María José, aunque todos me dicen Majo. Estudio Ingeniería en Sistemas de Información en la UTN y trabajo en desarrollo de software, con interés en crear herramientas que resuelvan problemas concretos.",
+  "aboutP2": "Empecé por el frontend, con HTML, CSS y JavaScript, y hoy trabajo en todo el stack, desde la interfaz hasta la base de datos y el deploy. Me interesa entender cómo trabajan las personas que van a usar una aplicación y encontrar formas de simplificar sus tareas.",
   "contactLead": "¿Tenés una propuesta o un proyecto en mente? ¡Escribime!",
   "projectTitle1": "Notflix",
   "projectTitle2": "Marvel Wiki",
@@ -37,7 +37,7 @@
   "fact1": "Mendoza, Argentina",
   "fact2": "Ingeniería en Sistemas · UTN",
   "fact3": "Técnica en Sistemas @ Grupo Broda",
-  "fact4": "Español (nativo) · Inglés (bilingüe, C1)",
+  "fact4": "Español (nativo) · Inglés (C1)",
   "profileAlt": "Foto de María José Villarreal",
   "sticker": "¡hola!",
   "contactTitle": "¿Charlamos?",
@@ -57,5 +57,5 @@
   "factNowLabel": "Hoy",
   "factLangLabel": "Idiomas",
   "viewCertificate": "Ver certificado",
-  "aboutP3": "Fuera del ámbito de la programación, participé en el Space Camp del U.S. Space & Rocket Center, donde mi equipo recibió el premio al equipo más destacado, y fui voluntaria en el Mundial Sub-20 de la FIFA en Argentina."
+  "aboutP3": "Fuera de la programación, participé en el Space Camp del U.S. Space & Rocket Center, donde mi equipo recibió el premio al equipo más destacado, y fui voluntaria en el Mundial Sub-20 de la FIFA en Argentina."
 }

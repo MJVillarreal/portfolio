@@ -77,7 +77,7 @@ export const EXPERIENCE: Record<Lang, Job[]> = {
       type: "Part-time",
       summary: [
         "Formo parte del equipo de Control de Gestión, el área de tecnología del grupo. Me encargo de identificar procesos que pueden mejorarse mediante la automatización, desarrollar nuevas herramientas y optimizar las que ya están en uso. Esto incluye desde aplicaciones internas que reemplazan planillas de Excel hasta mejoras en el sistema de reservas de los restaurantes.",
-        "Trabajo con las áreas de RR. HH., gerencias y marketing para entender sus necesidades y desarrollar soluciones concretas, integradas con Odoo, el ERP de la empresa. También brindo soporte técnico en el día a día, tanto en equipos como en software, para resolver problemas y facilitar el trabajo de los distintos equipos.",
+        "Trabajo con las áreas de RR. HH., gerencias y marketing para entender sus necesidades y desarrollar soluciones concretas, integradas con Odoo, el ERP de la empresa. También brindo soporte técnico en el día a día, tanto en equipos como en software, para resolver problemas y facilitar las tareas cotidianas.",
       ],
       tech: BRODA_TECH,
     },
@@ -91,8 +91,8 @@ export const EXPERIENCE: Record<Lang, Job[]> = {
       date: "2026 — Present",
       type: "Part-time",
       summary: [
-        "I'm part of the Management Control team, the group's technology area. I identify processes that can be improved through automation, build new tools and optimize the ones already in use. That ranges from internal applications that replace Excel spreadsheets to improvements to the restaurants' reservation system.",
-        "I work with HR, management and marketing to understand their needs and build concrete solutions, integrated with Odoo, the company's ERP. I also provide day-to-day technical support, both hardware and software, to solve problems and make work easier for the different teams.",
+        "I'm part of the Management Control team, which oversees technology across the group. I identify processes that can be improved through automation, build new tools and optimize the ones already in use. That ranges from internal applications that replace Excel spreadsheets to improvements to the restaurants' reservation system.",
+        "I work with HR, management and marketing to understand their needs and build concrete solutions, integrated with Odoo, the company's ERP. I also provide day-to-day technical support for hardware and software, helping resolve issues and keep operations running smoothly.",
       ],
       tech: BRODA_TECH,
     },
@@ -104,20 +104,20 @@ export const FEATURED_PROJECT: Record<Lang, FeaturedProject> = {
     label: "Proyecto profesional · Grupo Broda",
     title: "Sistema de Gestión de Personal",
     description:
-      "Plataforma web interna que reemplaza las planillas de Excel en la gestión de personal de un grupo gastronómico con varias sucursales. Tiene dos módulos conectados entre sí y con el ERP Odoo.",
+      "Plataforma web interna que reemplaza las planillas de Excel en la gestión de personal de un grupo gastronómico con varias sucursales. La plataforma se divide en dos módulos, conectados entre sí y con el ERP Odoo.",
     modules: [
       {
         name: "Capital Humano",
         description:
-          "Sigue el proceso completo, desde el pedido de personal hasta la efectivización. Cubre búsqueda y candidatos, y un período de prueba con evaluación del gerente y alertas de vencimiento. También gestiona al personal eventual: eventos, horas, tarifas por puesto, asistencia, desempeño y reportes en Excel.",
+          "Cubre todo el proceso, desde la solicitud de personal hasta la contratación: búsqueda y seguimiento de candidatos, gestión del período de prueba con evaluaciones de los gerentes y alertas de vencimiento. También permite administrar al personal eventual, incluyendo eventos, horas trabajadas, tarifas por puesto, asistencia, desempeño y reportes en Excel.",
       },
       {
         name: "Mano de Obra",
         description:
-          "Los gerentes cargan los turnos de su personal en una grilla por período, con fechas de cierre. El resultado se exporta por razón social para liquidar sueldos. Incluye además importación de liquidaciones, un checklist de pagos y un padrón sincronizado desde Capital Humano.",
+          "Los gerentes cargan los turnos de su personal en una grilla por período, con fechas de cierre. Los turnos se exportan por razón social para la liquidación de sueldos. El módulo también permite importar liquidaciones, gestionar un checklist de pagos y consultar el padrón de personal sincronizado desde Capital Humano.",
       },
     ],
-    shared: "Las dos apps tienen permisos por rol, notificaciones, diseño responsive y modo oscuro.",
+    shared: "Ambas aplicaciones incluyen permisos por rol, notificaciones, diseño adaptable a dispositivos móviles y modo oscuro.",
     highlights: [
       { value: "3 servicios", label: "Capital Humano ↔ Odoo ↔ Mano de Obra" },
       { value: "Automatizaciones", label: "Tareas programadas e import/export de Excel" },
@@ -137,20 +137,20 @@ export const FEATURED_PROJECT: Record<Lang, FeaturedProject> = {
     label: "Professional project · Grupo Broda",
     title: "Staff Management System",
     description:
-      "Internal web platform that replaces the Excel spreadsheets used to manage staff across a multi-location restaurant group. It has two modules, connected to each other and to the Odoo ERP.",
+      "An internal web platform that replaces the Excel spreadsheets used to manage staff across a restaurant group with multiple locations. It consists of two interconnected modules, both integrated with the Odoo ERP.",
     modules: [
       {
         name: "HR",
         description:
-          "Covers the full process, from the staffing request to the permanent hire: job search and candidates, plus a probation period with manager evaluations and expiration alerts. It also manages temporary staff: events, hours, rates per position, attendance, performance and Excel reports.",
+          "Covers the entire process, from staffing requests through hiring: recruitment and candidate tracking, probation-period evaluations by managers, and alerts for upcoming end dates. It also manages temporary staff, including event assignments, hours worked, rates by position, attendance, performance, and Excel reports.",
       },
       {
         name: "Workforce",
         description:
-          "Managers enter their staff's shifts in a grid per period, with closing dates. The result is exported by legal entity to run payroll. It also includes payroll imports, a payments checklist and a staff roster synced from HR.",
+          "Managers enter staff shifts in a grid organized by pay period, with defined closing dates. Shift data is exported by legal entity for payroll processing. The module also supports payroll data imports, a payment checklist, and a staff roster synced from HR.",
       },
     ],
-    shared: "Both apps have role-based permissions, notifications, responsive design and dark mode.",
+    shared: "Both applications feature role-based access control, notifications, responsive layouts, and dark mode.",
     highlights: [
       { value: "3 services", label: "HR ↔ Odoo ↔ Workforce" },
       { value: "Automation", label: "Scheduled jobs and Excel import/export" },
@@ -206,7 +206,7 @@ export const STACK_GROUPS: { key: string; title: Record<Lang, string>; items: Te
   },
   {
     key: "quality",
-    title: { es: "Calidad", en: "Quality" },
+    title: { es: "Calidad de código", en: "Code Quality" },
     items: [TECH.ESLINT, TECH.PRETTIER],
   },
   {
@@ -238,7 +238,7 @@ export const OTHER_WORK_PROJECTS: Record<Lang, WorkProject[]> = {
       icon: "calendar",
       title: "Sistema de reservas online",
       description:
-        "Un mismo sistema para 6 locales de 4 marcas, cada uno con su propia identidad visual. Está conectado al módulo de citas de Odoo: permite modificar y cancelar reservas, detecta duplicados y envía mails con el diseño de cada local.",
+        "Un mismo sistema para 6 locales de 4 marcas, cada uno con su propia identidad visual. Se integra con el módulo de citas de Odoo y permite modificar y cancelar reservas, detectar duplicados y enviar correos electrónicos con el diseño de cada local.",
       tag: "6 locales · 4 marcas",
       images: RESERVAS_IMAGES,
       tech: RESERVAS_TECH,
@@ -247,8 +247,8 @@ export const OTHER_WORK_PROJECTS: Record<Lang, WorkProject[]> = {
       icon: "browser",
       title: "Landings de los restaurantes",
       description:
-        "Sitios de los restaurantes del grupo. Marketing actualiza carta, fotos y brochures desde Google Drive sin tocar código, y las métricas se miden con Meta Pixel y Google Analytics.",
-      tag: "Autogestionables",
+        "Sitios web de los restaurantes del grupo. El equipo de Marketing actualiza las cartas, fotos y brochures desde Google Drive, sin necesidad de modificar el código. Las métricas se registran con Meta Pixel y Google Analytics.",
+      tag: "Autogestionable",
       images: LANDINGS_IMAGES,
       tech: LANDINGS_TECH,
     },
@@ -258,7 +258,7 @@ export const OTHER_WORK_PROJECTS: Record<Lang, WorkProject[]> = {
       icon: "calendar",
       title: "Online reservation system",
       description:
-        "One system serving 6 restaurants across 4 brands, each with its own visual identity. It's connected to Odoo's appointments module: guests can modify and cancel bookings, duplicates are detected and every restaurant sends emails with its own design.",
+        "One reservation system serving six restaurants across four brands, each with its own visual identity. Integrated with Odoo's appointments module, it allows guests to modify or cancel bookings, detects duplicate reservations, and sends emails customized for each restaurant.",
       tag: "6 restaurants · 4 brands",
       images: RESERVAS_IMAGES,
       tech: RESERVAS_TECH,
@@ -267,7 +267,7 @@ export const OTHER_WORK_PROJECTS: Record<Lang, WorkProject[]> = {
       icon: "browser",
       title: "Restaurant landing pages",
       description:
-        "Websites for the group's restaurants. Marketing updates menus, photos and brochures from Google Drive without touching code, and metrics are tracked with Meta Pixel and Google Analytics.",
+        "Websites for the group's restaurants, with content managed by the marketing team. They can update menus, photos, and brochures through Google Drive without editing code. Traffic and engagement are tracked using Meta Pixel and Google Analytics.",
       tag: "Self-managed",
       images: LANDINGS_IMAGES,
       tech: LANDINGS_TECH,
@@ -295,7 +295,7 @@ export const EDUCATION: Record<Lang, EducationItem[]> = {
       place: "Universidad Tecnológica Nacional — FRM",
       date: "En curso",
       description:
-        "Cursando la carrera en la UTN Facultad Regional Mendoza, donde estoy construyendo una base sólida en programación, análisis de sistemas y gestión de proyectos tecnológicos.",
+        "Cursando la carrera en la UTN Facultad Regional Mendoza, con formación en programación, análisis de sistemas y gestión de proyectos tecnológicos.",
       current: true,
     },
     {
@@ -325,11 +325,11 @@ export const EDUCATION: Record<Lang, EducationItem[]> = {
   ],
   en: [
     {
-      title: "Systems Engineering",
+      title: "Information Systems Engineering",
       place: "National Technological University (UTN) — Mendoza",
       date: "In progress",
       description:
-        "Currently pursuing the degree at UTN, Mendoza Regional Faculty, where I'm building a solid foundation in programming, systems analysis and technology project management.",
+        "Currently pursuing a degree in Information Systems Engineering at UTN Mendoza Regional Faculty, with coursework in programming, systems analysis, and technology project management.",
       current: true,
     },
     {
@@ -337,7 +337,7 @@ export const EDUCATION: Record<Lang, EducationItem[]> = {
       place: CTD_EN,
       date: "January 2024",
       description:
-        "Specialization in frontend development, focused on building attractive, functional interfaces and improving usability and user experience across platforms.",
+        "Specialized training in frontend development, focused on building functional interfaces and improving usability and user experience across platforms.",
       detail: "645 hours",
       certificate: "/certificados/front-end-specialist.pdf",
     },
@@ -346,7 +346,7 @@ export const EDUCATION: Record<Lang, EducationItem[]> = {
       place: CTD_EN,
       date: "December 2022",
       description:
-        "Training across the full software development cycle, to build applications that run smoothly and meet the needs of the people who use them.",
+        "Training in the full software development lifecycle, covering the skills needed to build applications that meet users' needs.",
       detail: "1,568 hours",
       certificate: "/certificados/professional-developer.pdf",
     },

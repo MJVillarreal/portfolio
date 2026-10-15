@@ -5,7 +5,7 @@ import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
-  site: "https://portfolio-puce-eight-67.vercel.app",
+  site: "https://majovillarreal.vercel.app",
   integrations: [
     tailwind({ applyBaseStyles: false }),
     sitemap({
