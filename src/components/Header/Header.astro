@@ -1,130 +1,148 @@
 ---
-import LanguageToggle from "./LanguageToggle.astro";
 import ThemeToggle from "./ThemeToggle.astro";
 
 import { getRelativeLocaleUrl } from "astro:i18n";
+import { languages } from "../../i18n/ui";
 import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-const { currentLocale } = Astro;
-
-const sectionIds = {
-  home: "top",
-  education: "education",
-  projects: "projects",
-  about: "about",
-};
+const homeUrl = getRelativeLocaleUrl(lang, "");
+const otherLang = Object.keys(languages).find((l) => l !== lang)!;
 
 const navItems = [
-  {
-    title: t("home"),
-    label: "home",
-    url: getRelativeLocaleUrl(currentLocale ?? '', "") + `#${sectionIds.home}`,
-  },
-  {
-    title: t("education"),
-    label: "education",
-    url: getRelativeLocaleUrl(currentLocale ?? '', "") + `#${sectionIds.education}`,
-  },
-  {
-    title: t("projects"),
-    label: "projects",
-    url: getRelativeLocaleUrl(currentLocale ?? '', "") + `#${sectionIds.projects}`,
-  },
-  {
-    title: t("about"),
-    label: "about-me",
-    url: getRelativeLocaleUrl(currentLocale ?? '', "") + `#${sectionIds.about}`,
-  },
+  { title: t("experience"), section: "experience" },
+  { title: t("projects"), section: "projects" },
+  { title: t("education"), section: "education", hideOnMobile: true },
+  { title: t("about"), section: "about" },
 ];
 ---
 
-<header
-  class="fixed top-0 z-10 flex items-center justify-center w-full mx-auto mt-2"
->
-  <nav
-    class="flex px-3 text-sm font-medium rounded-full text-gray-600 dark:text-gray-200 justify-center items-center"
+<header class="fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:px-4">
+  <div
+    id="header-bar"
+    class="mx-auto flex max-w-5xl items-center justify-between gap-2 rounded-full border border-transparent px-2 py-1.5 transition-all duration-300 sm:px-3"
   >
-    {
-      navItems.map((link) => (
-        <a
-          class="relative block px-2 py-2 transition hover:text-blue-500 dark:hover:text-green-500"
-          aria-label={link.label}
-          href={link.url}
-        >
-          {link.title}
-        </a>
-      ))
-    }
-    <LanguageToggle />
-    <ThemeToggle />
-  </nav>
+    <a
+      href={`${homeUrl}#top`}
+      class="hidden whitespace-nowrap px-2 text-sm font-semibold tracking-tight transition-colors hover:text-accent md:block"
+      title={t("home")}
+    >
+      María José Villarreal
+    </a>
+
+    <nav
+      aria-label={t("mainNav")}
+      class="no-scrollbar relative flex min-w-0 items-center overflow-x-auto text-xs sm:text-sm"
+    >
+      <span
+        id="nav-indicator"
+        aria-hidden="true"
+        class="absolute left-0 top-1/2 h-8 -translate-y-1/2 rounded-full bg-ink opacity-0 transition-all duration-300 ease-out"
+      ></span>
+      {
+        navItems.map((link) => (
+          <a
+            class:list={["relative z-10 whitespace-nowrap rounded-full px-2.5 py-1.5 font-medium text-muted transition-colors duration-300 hover:text-ink aria-[current=true]:text-bg sm:px-3.5", link.hideOnMobile && "hidden sm:block"]}
+            data-nav-link
+            data-section={link.section}
+            href={`${homeUrl}#${link.section}`}
+          >
+            {link.title}
+          </a>
+        ))
+      }
+    </nav>
+
+    <div class="flex shrink-0 items-center">
+      <a
+        href={getRelativeLocaleUrl(otherLang, "")}
+        hreflang={otherLang}
+        lang={otherLang}
+        title={t("switchLanguage")}
+        aria-label={t("switchLanguage")}
+        class="grid size-9 place-items-center rounded-full font-mono text-xs font-semibold uppercase text-muted transition hover:bg-ink/5 hover:text-ink"
+      >
+        {otherLang}
+      </a>
+      <ThemeToggle />
+    </div>
+  </div>
 </header>
 
-<script>
-  document.addEventListener("astro:page-load", () => {
-    const sections = document.querySelectorAll("section");
-    const navItems = document.querySelectorAll("header nav a");
+<style>
+  #header-bar.is-scrolled {
+    @apply border-line bg-surface/75 shadow-lg shadow-ink/5 backdrop-blur-xl;
+  }
 
-    const callback = (entries: any[]) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          navItems.forEach((item) => {
-            const isDarkMode =
-              document.documentElement.classList.contains("dark");
-            if (item.getAttribute("aria-label") === entry.target.id) {
-              item.classList.add(
-                isDarkMode ? "text-green-500" : "text-blue-500"
-              );
-            } else {
-              item.classList.remove("text-blue-500", "text-green-500");
-            }
-          });
-        }
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+</style>
+
+<script>
+  function initNav() {
+    const bar = document.getElementById("header-bar");
+    const indicator = document.getElementById("nav-indicator");
+    const links = [
+      ...document.querySelectorAll<HTMLAnchorElement>("[data-nav-link]"),
+    ];
+    const sections = links
+      .map((link) => document.getElementById(link.dataset.section!))
+      .filter((s): s is HTMLElement => s !== null);
+
+    const update = () => {
+      bar?.classList.toggle("is-scrolled", window.scrollY > 16);
+
+      // La sección activa es la última cuyo borde superior pasó el 35% de la pantalla
+      const line = window.innerHeight * 0.35;
+      let active: string | null = null;
+      for (const section of sections) {
+        if (section.getBoundingClientRect().top <= line) active = section.id;
+      }
+
+      const activeLink = links.find((l) => l.dataset.section === active);
+      links.forEach((link) => {
+        if (link === activeLink) link.setAttribute("aria-current", "true");
+        else link.removeAttribute("aria-current");
+      });
+
+      if (!indicator) return;
+      if (activeLink && activeLink.offsetWidth > 0) {
+        indicator.style.opacity = "1";
+        indicator.style.width = `${activeLink.offsetWidth}px`;
+        indicator.style.transform = `translate(${activeLink.offsetLeft}px, -50%)`;
+      } else {
+        indicator.style.opacity = "0";
+      }
+    };
+
+    let ticking = false;
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        ticking = false;
+        update();
       });
     };
 
-    const observer = new IntersectionObserver(callback, {
-      root: null,
-      rootMargin: "0px",
-      threshold: 0.3,
+    const controller = new AbortController();
+    window.addEventListener("scroll", onScroll, {
+      passive: true,
+      signal: controller.signal,
+    });
+    window.addEventListener("resize", onScroll, { signal: controller.signal });
+    document.addEventListener("astro:before-swap", () => controller.abort(), {
+      once: true,
     });
 
-    sections.forEach((section) => {
-      observer.observe(section);
-    });
+    update();
+  }
 
-    document.onvisibilitychange = () => {
-      if (document.visibilityState === "hidden") {
-        observer.disconnect();
-      } else {
-        sections.forEach((section) => {
-          observer.observe(section);
-        });
-      }
-    };
-  });
+  document.addEventListener("astro:page-load", initNav);
 </script>
-
-<style>
-  nav {
-    animation: nav-shadown 1s linear both;
-    animation-timeline: scroll();
-    animation-range: 0 100px;
-  }
-
-  nav {
-    @apply dark:bg-gray-800/90 bg-white/50;
-  }
-
-  @keyframes nav-shadown {
-    0% {
-      @apply dark:bg-gray-800/0 bg-white/0;
-    }
-    to {
-      @apply shadow-lg ring-1 backdrop-blur ring-white/10;
-    }
-  }
-</style>

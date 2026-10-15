@@ -1,0 +1,84 @@
+---
+import { Image } from "astro:assets";
+import TechChip from "./TechChip.astro";
+import type { WorkProject } from "../data/content";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+interface Props {
+  project: WorkProject;
+}
+
+const { project } = Astro.props;
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<article class="card flex flex-col overflow-hidden p-3 transition hover:border-accent/40">
+  {
+    project.images?.length ? (
+      <div class="grid grid-cols-2 gap-1.5 overflow-hidden rounded-2xl border border-line bg-line">
+        {project.images.map((image) => (
+          <Image
+            src={image}
+            alt={`${t("projectScreenshot")} ${project.title}`}
+            widths={[320, 480]}
+            sizes="(min-width: 768px) 230px, 50vw"
+            loading="lazy"
+            class="aspect-[16/10] w-full object-cover object-top transition duration-500 hover:scale-[1.03]"
+          />
+        ))}
+      </div>
+    ) : (
+      <div
+        aria-hidden="true"
+        class="dot-grid relative grid aspect-[16/6] place-items-center overflow-hidden rounded-2xl border border-line bg-glow/15"
+      >
+        <div class="absolute -right-10 -top-10 size-40 rounded-full bg-pop/20 blur-2xl" />
+        <div class="relative grid size-16 place-items-center rounded-2xl border border-line bg-surface text-accent shadow-lg shadow-ink/5">
+          {project.icon === "calendar" ? (
+            <svg viewBox="0 0 24 24" class="size-7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="5" width="18" height="16" rx="3" />
+              <path d="M8 3v4M16 3v4M3 10h18" />
+              <path d="m9 15 2 2 4-4" />
+            </svg>
+          ) : (
+            <svg viewBox="0 0 24 24" class="size-7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="16" rx="3" />
+              <path d="M3 9h18" />
+              <path d="M6.5 6.5h.01M9 6.5h.01" />
+              <path d="M7 13h6M7 16h10" />
+            </svg>
+          )}
+        </div>
+      </div>
+    )
+  }
+
+  <div class="flex flex-1 flex-col p-4">
+    <div class="flex items-start justify-between gap-3">
+      <h4 class="text-xl font-semibold tracking-tight">{project.title}</h4>
+      <span class="chip shrink-0 !py-0.5">{project.tag}</span>
+    </div>
+    <p class="mt-2 flex-1 text-pretty text-sm leading-relaxed text-muted">{project.description}</p>
+    <ul class="mt-4 flex flex-wrap gap-2">
+      {project.tech.map((tech) => <TechChip tech={tech} />)}
+    </ul>
+    {
+      project.url && (
+        <div class="mt-5">
+          <a href={project.url} target="_blank" rel="noopener noreferrer" class="btn-primary !px-4 !py-2 text-xs">
+            {t("visitSite")} <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      )
+    }
+  </div>
+</article>
+
+<style>
+  .dot-grid {
+    background-image: radial-gradient(rgb(var(--ink) / 0.12) 1px, transparent 1px);
+    background-size: 14px 14px;
+  }
+</style>

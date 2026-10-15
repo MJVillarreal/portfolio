@@ -1,8 +1,15 @@
 ---
 import "@fontsource-variable/onest";
+import "@fontsource/instrument-serif/400.css";
+import "@fontsource/instrument-serif/400-italic.css";
+import "@fontsource-variable/jetbrains-mono";
+import "../styles/global.css";
+
 import Header from "../components/Header/Header.astro";
 import Footer from "../components/Footer.astro";
 import { ViewTransitions } from "astro:transitions";
+import { getAbsoluteLocaleUrl } from "astro:i18n";
+import { languages } from "../i18n/ui";
 
 interface Props {
   title: string;
@@ -12,99 +19,74 @@ interface Props {
 const { description, title } = Astro.props;
 
 const { currentLocale } = Astro;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImage = new URL(`/og-image-${currentLocale === "es" ? "es" : "en"}.png`, Astro.site);
+const ogLocale = currentLocale === "es" ? "es_AR" : "en_US";
 ---
 
 <!doctype html>
 <html lang={currentLocale}>
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
     <title>{title}</title>
+
+    <link rel="canonical" href={canonicalURL} />
+    {
+      Object.keys(languages).map((lang) => (
+        <link rel="alternate" hreflang={lang} href={getAbsoluteLocaleUrl(lang)} />
+      ))
+    }
+    <link rel="alternate" hreflang="x-default" href={getAbsoluteLocaleUrl("en")} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={title} />
+    <meta property="og:locale" content={ogLocale} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    {/* Se aplica el tema antes del primer render para evitar el flash de tema claro */}
+    <script is:inline>
+      (() => {
+        const applyTheme = () => {
+          let theme = "system";
+          try {
+            theme = localStorage.getItem("theme") ?? "system";
+          } catch {}
+          const isDark =
+            theme === "dark" ||
+            (theme === "system" &&
+              window.matchMedia("(prefers-color-scheme: dark)").matches);
+          document.documentElement.classList.toggle("dark", isDark);
+        };
+        applyTheme();
+        document.addEventListener("astro:after-swap", applyTheme);
+      })();
+    </script>
+
     <ViewTransitions />
   </head>
 
-  <body class="relative text-black dark:text-white">
-    <div
-      class="absolute top-0 bottom-0 z-[-2] min-h-screen w-full bg-slate-400 dark:bg-gray-950
-      bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(217,216,255,0.5),rgba(255,255,255,0.9))]
-      dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"
-    >
+  <body class="relative min-h-screen overflow-x-hidden">
+    <div aria-hidden="true" class="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[900px] overflow-hidden">
+      <div class="absolute -top-40 left-[-10%] size-[520px] rounded-full bg-glow/25 blur-[120px] dark:bg-glow/15"></div>
+      <div class="absolute top-20 right-[-10%] size-[420px] rounded-full bg-pop/15 blur-[120px] dark:bg-pop/[0.07]"></div>
     </div>
     <Header />
     <slot />
     <Footer />
-    <style is:global>
-      :root {
-        color-scheme: light dark;
-      }
-
-      html {
-        font-family: "Onest Variable", system-ui, sans-serif;
-        scroll-behavior: smooth;
-      }
-
-      body {
-        color: rgba(17, 17, 17, 0.9);
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-        overscroll-behavior: none;
-      }
-
-      @media (prefers-reduced-motion: reduce) {
-        html {
-          scroll-behavior: auto;
-        }
-      }
-
-      #header-nav {
-        animation: blur linear both 0.5s;
-        animation-timeline: scroll();
-        animation-range: 0 500px;
-      }
-
-      @keyframes blur {
-        to {
-          backdrop-filter: blur(20px);
-          border-width: 1px;
-          border-color: rgba(0, 0, 0);
-          padding: 0.25rem 0.75rem;
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          background-color: rgb(229, 229, 229);
-          border-radius: 9999px;
-        }
-      }
-
-      @media (prefers-color-scheme: dark) {
-        @keyframes blur {
-          from {
-            border: 0px;
-          }
-          to {
-            box-shadow:
-              0px 5px 50px -5px rgba(0, 0, 0, 0.1),
-              0px 0px 0 1px rgba(0, 0, 0, 0.3);
-            background: rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(20px);
-            border-width: 1px;
-            border-color: rgba(0, 0, 0);
-            padding-left: 0.75rem;
-            padding-right: 0.75rem;
-            padding-top: 0.25rem;
-            padding-bottom: 0.25rem;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            background-color: rgba(0, 0, 0, 0.3);
-            border-radius: 9999px;
-          }
-        }
-      }
-    </style>
   </body>
 </html>

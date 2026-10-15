@@ -1,0 +1,252 @@
+---
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const CX = 250;
+const CY = 285;
+const R = 200;
+---
+
+<figure class="relative mx-auto w-full max-w-[460px] select-none">
+  <svg
+    id="globe"
+    viewBox="0 0 500 500"
+    role="img"
+    aria-label={t("globeAlt")}
+    class="h-auto w-full cursor-grab touch-pan-y overflow-visible active:cursor-grabbing"
+  >
+    <defs>
+      <radialGradient id="globe-light" cx="36%" cy="30%" r="72%">
+        <stop offset="0%" stop-color="#fff" stop-opacity="0.45"></stop>
+        <stop offset="55%" stop-color="#fff" stop-opacity="0"></stop>
+        <stop offset="100%" stop-color="#000" stop-opacity="0.22"></stop>
+      </radialGradient>
+    </defs>
+
+    <ellipse cx={CX} cy={CY + R + 8} rx={R * 0.7} ry="9" class="fill-ink/10"></ellipse>
+
+    <circle cx={CX} cy={CY} r={R} class="globe-ocean"></circle>
+    <path class="globe-graticule" data-globe="graticule"></path>
+    <path class="globe-land" data-globe="land"></path>
+    <path class="globe-highlight" data-globe="argentina"></path>
+    <circle cx={CX} cy={CY} r={R} fill="url(#globe-light)" pointer-events="none"></circle>
+    <circle cx={CX} cy={CY} r={R} class="globe-rim" pointer-events="none"></circle>
+
+    <g data-globe="pin" class="transition-opacity duration-300">
+      <ellipse rx="7" ry="2.5" class="fill-ink/25"></ellipse>
+      <circle r="4" class="pin-pulse fill-pop"></circle>
+      <path data-flag="stripe" fill="#74ACDF"></path>
+      <path data-flag="stripe" fill="#FFFFFF"></path>
+      <path data-flag="stripe" fill="#74ACDF"></path>
+      <path data-flag="outline" fill="none" class="stroke-ink/15" stroke-width="0.8"></path>
+      <circle data-flag="sun" r="5.2" fill="#F6B40E" stroke="#85340A" stroke-width="0.7"></circle>
+      <line y1="2" y2="-110" class="stroke-ink" stroke-width="2.6" stroke-linecap="round"></line>
+      <circle cy="-112" r="3.8" class="fill-pop"></circle>
+    </g>
+  </svg>
+
+  <figcaption class="mt-4 text-center font-mono text-[11px] uppercase tracking-wider text-ink">
+    {t("location")}
+  </figcaption>
+  <p class="mt-1 text-center text-[11px] text-muted/70" aria-hidden="true">
+    ↔ {t("globeHint")}
+  </p>
+</figure>
+
+<style>
+  .globe-ocean {
+    fill: rgb(var(--ocean));
+  }
+  .globe-graticule {
+    fill: none;
+    stroke: rgb(var(--ink) / 0.07);
+    stroke-width: 0.6;
+  }
+  .globe-land {
+    fill: rgb(var(--land));
+    stroke: rgb(var(--ocean));
+    stroke-width: 0.5;
+  }
+  .globe-highlight {
+    fill: rgb(var(--land-highlight));
+    stroke: rgb(var(--land-highlight));
+    stroke-width: 0.6;
+  }
+  .globe-rim {
+    fill: none;
+    stroke: rgb(var(--ink) / 0.12);
+    stroke-width: 1;
+  }
+  .pin-pulse {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: pulse 2.2s ease-out infinite;
+  }
+  @keyframes pulse {
+    from {
+      transform: scale(1);
+      opacity: 0.7;
+    }
+    to {
+      transform: scale(3.5);
+      opacity: 0;
+    }
+  }
+</style>
+
+<script>
+  import { geoDistance, geoGraticule10, geoOrthographic, geoPath } from "d3-geo";
+  import { feature } from "topojson-client";
+  import type { Topology, GeometryCollection } from "topojson-specification";
+  import worldData from "world-atlas/countries-110m.json";
+
+  const CX = 250;
+  const CY = 285;
+  const R = 200;
+
+  const MENDOZA: [number, number] = [-68.84, -32.89];
+  // Centramos el globo en Sudamérica, con Mendoza cerca del centro
+  const BASE_ROTATION: [number, number] = [64, 26];
+  const ARGENTINA_ID = "032";
+
+  const FLAG_W = 72;
+  const FLAG_H = 46;
+  const FLAG_TOP = -108;
+
+  const world = worldData as unknown as Topology<{
+    countries: GeometryCollection;
+    land: GeometryCollection;
+  }>;
+  const land = feature(world, world.objects.land);
+  const argentina = feature(world, world.objects.countries).features.find(
+    (f) => f.id === ARGENTINA_ID
+  );
+  const graticule = geoGraticule10();
+
+  function initGlobe() {
+    const svg = document.getElementById("globe");
+    if (!svg) return;
+
+    const q = (name: string) => svg.querySelector<SVGElement>(`[data-globe="${name}"]`)!;
+    const landEl = q("land");
+    const argentinaEl = q("argentina");
+    const graticuleEl = q("graticule");
+    const pinEl = q("pin");
+    const stripes = svg.querySelectorAll<SVGPathElement>('[data-flag="stripe"]');
+    const outline = svg.querySelector<SVGPathElement>('[data-flag="outline"]')!;
+    const flagSun = svg.querySelector<SVGCircleElement>('[data-flag="sun"]')!;
+
+    const projection = geoOrthographic()
+      .scale(R)
+      .translate([CX, CY])
+      .clipAngle(90)
+      .precision(0.5);
+    const path = geoPath(projection);
+
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    const wave = (x: number, time: number) =>
+      Math.sin((x / FLAG_W) * Math.PI * 1.8 - time * 0.005) * 3.6 * (x / FLAG_W);
+
+    const edge = (y: number, time: number, reverse = false) => {
+      const points: string[] = [];
+      for (let i = 0; i <= 20; i++) {
+        const x = (FLAG_W * (reverse ? 20 - i : i)) / 20;
+        points.push(`${x.toFixed(1)},${(y + wave(x, time)).toFixed(1)}`);
+      }
+      return points.join("L");
+    };
+
+    const drawFlag = (time: number) => {
+      const band = FLAG_H / 3;
+      stripes.forEach((stripe, i) => {
+        const y0 = FLAG_TOP + band * i;
+        stripe.setAttribute("d", `M${edge(y0, time)}L${edge(y0 + band, time, true)}Z`);
+      });
+      outline.setAttribute(
+        "d",
+        `M${edge(FLAG_TOP, time)}L${edge(FLAG_TOP + FLAG_H, time, true)}Z`
+      );
+      flagSun.setAttribute("cx", String(FLAG_W / 2));
+      flagSun.setAttribute("cy", String(FLAG_TOP + FLAG_H / 2 + wave(FLAG_W / 2, time)));
+    };
+
+    let dragOffset = 0;
+    let dragging = false;
+    let lastX = 0;
+
+    const render = (time: number) => {
+      const sway = reduceMotion ? 0 : Math.sin(time * 0.00032) * 26;
+      const lambda = BASE_ROTATION[0] + sway + dragOffset;
+      projection.rotate([lambda, BASE_ROTATION[1]]);
+
+      graticuleEl.setAttribute("d", path(graticule) ?? "");
+      landEl.setAttribute("d", path(land) ?? "");
+      argentinaEl.setAttribute("d", (argentina && path(argentina)) ?? "");
+
+      const center: [number, number] = [-lambda, -BASE_ROTATION[1]];
+      const visible = geoDistance(MENDOZA, center) < Math.PI / 2 - 0.12;
+      pinEl.style.opacity = visible ? "1" : "0";
+
+      const point = projection(MENDOZA);
+      if (point) {
+        const nx = (point[0] - CX) / R;
+        const ny = (point[1] - CY) / R;
+        const dx = nx * 0.6;
+        const dy = ny * 0.6 - 0.4;
+        const angle = (Math.atan2(dx, -dy) * 180) / Math.PI;
+        pinEl.setAttribute(
+          "transform",
+          `translate(${point[0].toFixed(1)} ${point[1].toFixed(1)}) rotate(${angle.toFixed(1)})`
+        );
+      }
+
+      drawFlag(reduceMotion ? 0 : time);
+    };
+
+    const scale = () => 500 / svg.getBoundingClientRect().width;
+    svg.addEventListener("pointerdown", (e) => {
+      dragging = true;
+      lastX = e.clientX;
+      svg.setPointerCapture(e.pointerId);
+    });
+    svg.addEventListener("pointermove", (e) => {
+      if (!dragging) return;
+      dragOffset += (e.clientX - lastX) * 0.35 * scale();
+      dragOffset = Math.max(-80, Math.min(80, dragOffset));
+      lastX = e.clientX;
+      if (reduceMotion) render(0);
+    });
+    const release = () => (dragging = false);
+    svg.addEventListener("pointerup", release);
+    svg.addEventListener("pointercancel", release);
+
+    let frame = 0;
+    const loop = (time: number) => {
+      if (!dragging) dragOffset *= 0.97;
+      render(time);
+      frame = requestAnimationFrame(loop);
+    };
+
+    render(0);
+
+    const visibility = new IntersectionObserver(([entry]) => {
+      cancelAnimationFrame(frame);
+      if (entry.isIntersecting && !reduceMotion) frame = requestAnimationFrame(loop);
+    });
+    visibility.observe(svg);
+
+    document.addEventListener(
+      "astro:before-swap",
+      () => {
+        cancelAnimationFrame(frame);
+        visibility.disconnect();
+      },
+      { once: true }
+    );
+  }
+
+  document.addEventListener("astro:page-load", initGlobe);
+</script>

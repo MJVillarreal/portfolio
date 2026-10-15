@@ -1,38 +1,48 @@
 ---
-import SunIcon from "../../icons/HeaderIcons/Sun.astro"
-import MoonIcon from "../../icons/HeaderIcons/Moon.astro"
-import SystemIcon from "../../icons/HeaderIcons/System.astro"
+import SunIcon from "../../icons/HeaderIcons/Sun.astro";
+import MoonIcon from "../../icons/HeaderIcons/Moon.astro";
+import SystemIcon from "../../icons/HeaderIcons/System.astro";
 
-const THEMES = ["Light", "Dark", "System"]
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const THEMES = [
+  { value: "light", label: t("themeLight"), icon: SunIcon },
+  { value: "dark", label: t("themeDark"), icon: MoonIcon },
+  { value: "system", label: t("themeSystem"), icon: SystemIcon },
+];
 ---
 
-<div class="relative ml-1 mr-1">
+<div class="relative">
   <button
-    transition:persist
     id="theme-toggle-btn"
-    class="appearance-none border-none flex hover:scale-125 transition hover:text-blue-500 dark:hover:text-green-500"
-    aria-label="theme-toggle"
+    class="relative grid size-9 place-items-center rounded-full text-muted transition hover:bg-ink/5 hover:text-ink"
+    aria-label={t("themeToggle")}
+    aria-haspopup="true"
+    aria-expanded="false"
+    aria-controls="themes-menu"
   >
-    <SunIcon id="light" class="theme-toggle-icon size-5 transition-all" />
-    <MoonIcon
-      id="dark"
-      class="theme-toggle-icon absolute size-5 transition-all"
-    />
-    <SystemIcon
-      id="system"
-      class="theme-toggle-icon absolute size-5 transition-all"
-    />
+    <SunIcon data-theme-icon="light" class="absolute size-[18px] transition-transform duration-300" />
+    <MoonIcon data-theme-icon="dark" class="absolute size-[18px] transition-transform duration-300" />
+    <SystemIcon data-theme-icon="system" class="absolute size-[18px] transition-transform duration-300" />
   </button>
   <div
-    transition:persist
     id="themes-menu"
-    class="absolute hidden scale-80 top-8 right-0 text-sm p-1 min-w-[8rem] rounded-md border border-gray-100 bg-white/90 dark:bg-gray-900/90 dark:border-gray-500/20 shadow-[0_3px_10px_rgb(0,0,0,0.2)] backdrop-blur-md"
+    class="absolute right-0 top-11 hidden min-w-[9rem] rounded-2xl border border-line bg-surface p-1 text-sm shadow-xl shadow-ink/10"
   >
     <ul>
       {
         THEMES.map((theme) => (
-          <li class="themes-menu-option px-2 py-1.5 cursor-default hover:bg-neutral-400/40 dark:hover:bg-gray-500/50 rounded-sm">
-            {theme}
+          <li>
+            <button
+              class="flex w-full items-center gap-2 rounded-xl px-3 py-2 text-left text-muted transition hover:bg-ink/5 hover:text-ink focus-visible:bg-ink/5 data-[active=true]:text-ink data-[active=true]:font-medium"
+              data-theme-option={theme.value}
+            >
+              <theme.icon class="size-4" />
+              {theme.label}
+            </button>
           </li>
         ))
       }
@@ -42,81 +52,62 @@ const THEMES = ["Light", "Dark", "System"]
 
 <style>
   #themes-menu.open {
-    display: inline;
-    animation: scale-up-center 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    display: block;
+    animation: pop 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    transform-origin: top right;
   }
 
-  @keyframes scale-up-center {
+  @keyframes pop {
     from {
-      transform: scale(0.8);
+      transform: scale(0.9);
       opacity: 0;
-    }
-
-    to {
-      transform: scale(1);
-      opacity: 1;
     }
   }
 </style>
 
-<script is:inline>
-  let remove = null
-  const matchMedia = window.matchMedia("(prefers-color-scheme: dark)")
-  const themesMenu = document.getElementById("themes-menu")
+<script>
+  import { setupDropdown } from "../../scripts/dropdown";
 
-  const getThemePreference = () => {
-    if (typeof localStorage !== "undefined") {
-      return localStorage.getItem("theme") ?? "system"
+  type Theme = "light" | "dark" | "system";
+
+  const darkQuery = window.matchMedia("(prefers-color-scheme: dark)");
+
+  const getThemePreference = (): Theme => {
+    try {
+      return (localStorage.getItem("theme") as Theme | null) ?? "system";
+    } catch {
+      return "system";
     }
+  };
 
-    return window.matchMedia("(prefers-color-scheme: dark)").matches
-      ? "dark"
-      : "light"
-  }
+  const applyTheme = () => {
+    const theme = getThemePreference();
+    const isDark = theme === "dark" || (theme === "system" && darkQuery.matches);
+    document.documentElement.classList.toggle("dark", isDark);
 
-  const updateIcon = (themePreference) => {
-    document.querySelectorAll(".theme-toggle-icon").forEach((element) => {
-      element.style.scale = element.id === themePreference ? "1" : "0"
-    })
-  }
+    document.querySelectorAll<SVGElement>("[data-theme-icon]").forEach((icon) => {
+      icon.style.scale = icon.dataset.themeIcon === theme ? "1" : "0";
+    });
+    document.querySelectorAll<HTMLElement>("[data-theme-option]").forEach((option) => {
+      option.dataset.active = String(option.dataset.themeOption === theme);
+    });
+  };
 
-  const updateTheme = () => {
-    if (remove != null) {
-      remove()
-    }
-    matchMedia.addEventListener("change", updateTheme)
-    remove = () => {
-      matchMedia.removeEventListener("change", updateTheme)
-    }
+  darkQuery.addEventListener("change", applyTheme);
 
-    const themePreference = getThemePreference()
-    const isDark =
-      themePreference === "dark" ||
-      (themePreference === "system" && matchMedia.matches)
+  document.addEventListener("astro:page-load", () => {
+    applyTheme();
+    setupDropdown("theme-toggle-btn", "themes-menu");
 
-    updateIcon(themePreference)
-    document.documentElement.classList[isDark ? "add" : "remove"]("dark")
-  }
-
-  updateTheme()
-
-  document.addEventListener("click", () => themesMenu.classList.remove("open"))
-
-  document.getElementById("theme-toggle-btn").addEventListener("click", (e) => {
-    e.stopPropagation()
-    const isClosed = !themesMenu.classList.contains("open")
-    themesMenu.classList[isClosed ? "add" : "remove"]("open")
-  })
-
-  document.querySelectorAll(".themes-menu-option").forEach((element) => {
-    element.addEventListener("click", (e) => {
-      localStorage.setItem("theme", e.target.innerText.toLowerCase().trim())
-      updateTheme()
-    })
-  })
-
-  document.addEventListener('astro:after-swap', () => {
-    updateTheme();
-    window.scrollTo({ left: 0, top: 0, behavior: 'instant' });
-  })
+    document
+      .querySelectorAll<HTMLButtonElement>("[data-theme-option]")
+      .forEach((option) => {
+        option.addEventListener("click", () => {
+          try {
+            localStorage.setItem("theme", option.dataset.themeOption!);
+          } catch {}
+          applyTheme();
+        });
+      });
+  });
 </script>

@@ -1,0 +1,169 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Tokens de color (en RGB para poder usar opacidad: bg-accent/20).
+ *   accent → color principal (links, títulos destacados)
+ *   glow   → color suave para manchas de fondo y detalles
+ *   pop    → color de contraste (subrayados, sticker, bullets)
+ *
+ * Paletas (se elige con el atributo data-palette del <html> en Layout.astro):
+ *   - Azul (por defecto, sin atributo): azul + lavanda en ambos modos, fondo claro tipo papel.
+ *   - "clasica": azul en modo claro, verde en modo oscuro (la del portfolio original).
+ *   - "argentina": celeste, blanco y el dorado del Sol de Mayo.
+ */
+
+/* --- Paleta azul (por defecto) --- */
+:root {
+  color-scheme: light;
+  --bg: 247 245 240;
+  --surface: 255 255 255;
+  --ink: 17 24 39;
+  --muted: 82 90 105;
+  --line: 226 222 213;
+  --accent: 30 64 175;
+  --glow: 167 165 255;
+  --pop: 129 140 248;
+
+  --ocean: 207 214 252;
+  --land: 255 255 255;
+  --land-highlight: 30 64 175;
+}
+
+:root.dark {
+  color-scheme: dark;
+  --bg: 3 7 18;
+  --surface: 17 24 39;
+  --ink: 243 244 246;
+  --muted: 156 163 175;
+  --line: 31 41 55;
+  --accent: 110 168 254;
+  --glow: 120 119 198;
+  --pop: 165 180 252;
+
+  --ocean: 30 32 70;
+  --land: 70 72 125;
+  --land-highlight: 110 168 254;
+}
+
+/* --- Paleta clásica --- */
+:root[data-palette="clasica"] {
+  --bg: 244 246 249;
+  --surface: 255 255 255;
+  --ink: 17 24 39;
+  --muted: 75 85 99;
+  --line: 222 226 234;
+  --accent: 30 64 175;
+  --glow: 167 165 255;
+  --pop: 96 165 250;
+
+  --ocean: 207 214 252;
+  --land: 255 255 255;
+  --land-highlight: 30 64 175;
+}
+
+:root.dark[data-palette="clasica"] {
+  --bg: 3 7 18;
+  --surface: 17 24 39;
+  --ink: 243 244 246;
+  --muted: 156 163 175;
+  --line: 31 41 55;
+  --accent: 34 197 94;
+  --glow: 120 119 198;
+  --pop: 74 222 128;
+
+  --ocean: 30 32 70;
+  --land: 70 72 125;
+  --land-highlight: 34 197 94;
+}
+
+/* --- Paleta argentina --- */
+:root[data-palette="argentina"] {
+  --bg: 247 245 240;
+  --surface: 255 255 255;
+  --ink: 20 22 28;
+  --muted: 92 99 112;
+  --line: 226 222 213;
+  --accent: 30 108 176;
+  --glow: 116 172 223;
+  --pop: 246 180 14;
+
+  --ocean: 186 216 241;
+  --land: 255 255 255;
+  --land-highlight: 246 180 14;
+}
+
+:root.dark[data-palette="argentina"] {
+  --bg: 10 14 22;
+  --surface: 17 23 35;
+  --ink: 236 239 244;
+  --muted: 152 162 178;
+  --line: 36 44 58;
+  --accent: 133 192 240;
+  --glow: 116 172 223;
+  --pop: 246 180 14;
+
+  --ocean: 20 42 70;
+  --land: 58 92 132;
+  --land-highlight: 246 180 14;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply bg-bg font-sans text-ink antialiased;
+  }
+
+  ::selection {
+    @apply bg-glow/40;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-accent;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium transition duration-200 hover:-translate-y-0.5;
+  }
+
+  .btn-primary {
+    @apply btn bg-ink text-bg shadow-sm hover:shadow-lg hover:shadow-ink/10;
+  }
+
+  .btn-ghost {
+    @apply btn border border-line bg-surface/70 text-ink backdrop-blur hover:border-ink/30;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-line bg-surface/60 px-2.5 py-1 text-xs text-muted;
+  }
+
+  .card {
+    @apply rounded-3xl border border-line bg-surface/70 backdrop-blur-sm;
+  }
+
+  .eyebrow {
+    @apply font-mono text-xs uppercase tracking-[0.18em] text-accent;
+  }
+}

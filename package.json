@@ -11,11 +11,21 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
+    "@astrojs/sitemap": "^3.2.1",
     "@astrojs/tailwind": "^5.1.1",
+    "@fontsource-variable/jetbrains-mono": "^5.1.0",
     "@fontsource-variable/onest": "^5.1.0",
+    "@fontsource/instrument-serif": "^5.1.0",
     "astro": "^4.15.11",
-    "astro-tooltips": "^0.6.2",
+    "d3-geo": "^3.1.1",
     "tailwindcss": "^3.4.13",
-    "typescript": "^5.6.2"
+    "topojson-client": "^3.1.0",
+    "typescript": "^5.6.2",
+    "world-atlas": "^2.0.2"
+  },
+  "devDependencies": {
+    "@types/d3-geo": "^3.1.1",
+    "@types/topojson-client": "^3.1.5",
+    "simple-icons": "^13.21.0"
   }
 }
