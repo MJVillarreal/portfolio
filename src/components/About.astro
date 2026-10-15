@@ -1,0 +1,68 @@
+---
+import SectionHeading from "./SectionHeading.astro";
+import Avatar from "./Avatar.astro";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// true → foto real (public/profile.webp) · false → avatar ilustrado
+const SHOW_PHOTO = false;
+
+const frameClass =
+  "relative aspect-square w-full -rotate-2 rounded-[2rem] border-4 border-surface shadow-xl transition duration-500 hover:rotate-0";
+
+const FACTS = [
+  { label: t("factBaseLabel"), text: t("fact1") },
+  { label: t("factStudyLabel"), text: t("fact2") },
+  { label: t("factNowLabel"), text: t("fact3") },
+  { label: t("factLangLabel"), text: t("fact4") },
+];
+---
+
+<section id="about" class="mx-auto max-w-5xl px-5 py-16 md:py-20">
+  <SectionHeading index="05" title={t("about")} />
+
+  <div class="grid items-center gap-12 md:grid-cols-[1fr_300px]">
+    <div class="order-2 md:order-1">
+      <p class="text-pretty leading-relaxed text-muted">{t("aboutP1")}</p>
+      <p class="mt-4 text-pretty leading-relaxed text-muted">{t("aboutP2")}</p>
+      <p class="mt-4 text-pretty leading-relaxed text-muted">{t("aboutP3")}</p>
+
+      <dl class="mt-10 grid gap-x-10 gap-y-5 sm:grid-cols-2">
+        {
+          FACTS.map((fact) => (
+            <div class="border-t border-line pt-3">
+              <dt class="font-mono text-[11px] uppercase tracking-[0.18em] text-accent">{fact.label}</dt>
+              <dd class="mt-1 font-medium">{fact.text}</dd>
+            </div>
+          ))
+        }
+      </dl>
+    </div>
+
+    <div class="relative order-1 mx-auto w-60 md:order-2 md:w-full">
+      <div class="absolute inset-0 translate-x-3 translate-y-3 rotate-3 rounded-[2rem] bg-glow/40"></div>
+      {
+        SHOW_PHOTO ? (
+          <img
+            src="/profile.webp"
+            alt={t("profileAlt")}
+            width="300"
+            height="300"
+            loading="lazy"
+            decoding="async"
+            class={`${frameClass} object-cover`}
+          />
+        ) : (
+          <Avatar label={t("avatarAlt")} class={frameClass} />
+        )
+      }
+      <span
+        class="absolute -right-3 -top-4 rotate-12 rounded-full bg-pop px-4 py-2 font-display text-2xl italic text-gray-900 shadow-lg"
+      >
+        {t("sticker")}
+      </span>
+    </div>
+  </div>
+</section>

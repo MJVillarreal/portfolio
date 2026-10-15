@@ -1,0 +1,137 @@
+---
+import { Image } from "astro:assets";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+interface Props {
+  slides: { src: ImageMetadata; caption: string }[];
+}
+
+const { slides } = Astro.props;
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const arrowClass =
+  "absolute top-1/2 grid size-9 -translate-y-1/2 place-items-center rounded-full border border-white/15 bg-black/50 text-white opacity-0 backdrop-blur transition hover:bg-black/70 focus-visible:opacity-100 group-hover:opacity-100";
+---
+
+<div data-gallery tabindex="-1" class="outline-none">
+  <div class="group relative overflow-hidden rounded-2xl border border-line bg-[#030712] shadow-lg shadow-ink/5">
+    {
+      slides.map((slide, i) => (
+        <figure data-slide class:list={[i !== 0 && "hidden"]}>
+          <button type="button" data-zoom class="block w-full cursor-zoom-in" aria-label={t("galleryEnlarge")}>
+            <Image
+              src={slide.src}
+              alt={slide.caption}
+              widths={[640, 960, 1280, 1600]}
+              sizes="(min-width: 1024px) 940px, 100vw"
+              loading="lazy"
+              class="aspect-[16/7] w-full object-cover object-top"
+            />
+          </button>
+        </figure>
+      ))
+    }
+
+    <button type="button" data-prev class={`${arrowClass} left-3`} aria-label={t("galleryPrev")}>
+      <span aria-hidden="true">←</span>
+    </button>
+    <button type="button" data-next class={`${arrowClass} right-3`} aria-label={t("galleryNext")}>
+      <span aria-hidden="true">→</span>
+    </button>
+  </div>
+
+  <div class="mt-3 flex items-start justify-between gap-4 text-sm">
+    <p data-caption class="text-pretty text-muted" aria-live="polite">{slides[0].caption}</p>
+    <span class="flex shrink-0 items-center gap-2">
+      <span class="chip !py-0.5">{t("mockData")}</span>
+      <span data-counter class="font-mono text-xs text-muted">1 / {slides.length}</span>
+    </span>
+  </div>
+
+  <ul class="mt-3 grid grid-cols-5 gap-2">
+    {
+      slides.map((slide, i) => (
+        <li>
+          <button
+            type="button"
+            data-thumb={i}
+            aria-label={slide.caption}
+            aria-current={i === 0 ? "true" : undefined}
+            class="block w-full overflow-hidden rounded-lg border border-line opacity-60 ring-accent ring-offset-2 ring-offset-surface transition hover:opacity-100 aria-[current=true]:opacity-100 aria-[current=true]:ring-2"
+          >
+            <Image src={slide.src} alt="" width={240} class="aspect-[16/9] w-full object-cover object-top" />
+          </button>
+        </li>
+      ))
+    }
+  </ul>
+
+  <dialog
+    data-lightbox
+    class="m-auto max-h-[92vh] w-[min(1600px,96vw)] overflow-visible bg-transparent p-0 backdrop:bg-black/80 backdrop:backdrop-blur-sm"
+  >
+    <img data-lightbox-img alt="" class="max-h-[88vh] w-full rounded-xl object-contain shadow-2xl" />
+    <button
+      type="button"
+      data-close
+      class="absolute -top-3 -right-3 grid size-9 place-items-center rounded-full bg-white text-gray-900 shadow-lg"
+      aria-label={t("galleryClose")}
+    >
+      ✕
+    </button>
+  </dialog>
+</div>
+
+<script>
+  function initGallery(root: HTMLElement) {
+    const slides = [...root.querySelectorAll<HTMLElement>("[data-slide]")];
+    const thumbs = [...root.querySelectorAll<HTMLButtonElement>("[data-thumb]")];
+    const caption = root.querySelector<HTMLElement>("[data-caption]")!;
+    const counter = root.querySelector<HTMLElement>("[data-counter]")!;
+    const lightbox = root.querySelector<HTMLDialogElement>("[data-lightbox]")!;
+    const lightboxImg = root.querySelector<HTMLImageElement>("[data-lightbox-img]")!;
+    let current = 0;
+
+    const show = (index: number) => {
+      current = (index + slides.length) % slides.length;
+      slides.forEach((slide, i) => slide.classList.toggle("hidden", i !== current));
+      thumbs.forEach((thumb, i) => {
+        if (i === current) thumb.setAttribute("aria-current", "true");
+        else thumb.removeAttribute("aria-current");
+      });
+      const img = slides[current].querySelector("img")!;
+      caption.textContent = img.alt;
+      counter.textContent = `${current + 1} / ${slides.length}`;
+      if (lightbox.open) openLightbox();
+    };
+
+    const openLightbox = () => {
+      const img = slides[current].querySelector("img")!;
+      const largest = img.srcset.split(",").pop()?.trim().split(" ")[0];
+      lightboxImg.src = largest || img.currentSrc || img.src;
+      lightboxImg.alt = img.alt;
+      if (!lightbox.open) lightbox.showModal();
+    };
+
+    root.querySelector("[data-prev]")!.addEventListener("click", () => show(current - 1));
+    root.querySelector("[data-next]")!.addEventListener("click", () => show(current + 1));
+    thumbs.forEach((thumb, i) => thumb.addEventListener("click", () => show(i)));
+    root.querySelectorAll("[data-zoom]").forEach((btn) => btn.addEventListener("click", openLightbox));
+
+    root.querySelector("[data-close]")!.addEventListener("click", () => lightbox.close());
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) lightbox.close();
+    });
+
+    root.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowLeft") show(current - 1);
+      if (e.key === "ArrowRight") show(current + 1);
+    });
+  }
+
+  document.addEventListener("astro:page-load", () => {
+    document.querySelectorAll<HTMLElement>("[data-gallery]").forEach(initGallery);
+  });
+</script>

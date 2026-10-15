@@ -1,0 +1,74 @@
+---
+interface Props {
+  label: string;
+  class?: string;
+}
+
+const { label, class: className } = Astro.props;
+
+const HAIR = "#4A2C1E";
+const HAIR_SHINE = "#6B4130";
+const SKIN = "#F3C9A8";
+const SKIN_SHADE = "#E2AD8B";
+const FRAMES = "#26262B";
+---
+
+<svg viewBox="0 0 300 300" role="img" aria-label={label} class={className}>
+  <rect width="300" height="300" class="fill-glow/50"></rect>
+  <circle cx="150" cy="150" r="118" class="fill-surface/40"></circle>
+
+  <path
+    fill={HAIR}
+    d="M150 38 C 92 38 66 82 70 138 C 73 178 56 206 66 242 C 74 268 100 280 124 274 L 176 274 C 200 280 226 268 234 242 C 244 206 227 178 230 138 C 234 82 208 38 150 38 Z"
+  ></path>
+
+  <path fill="#1F2430" d="M56 300 C 58 252 98 230 150 230 C 202 230 242 252 244 300 Z"></path>
+  <rect x="131" y="186" width="38" height="52" rx="14" fill={SKIN_SHADE}></rect>
+
+  <ellipse cx="150" cy="136" rx="56" ry="67" fill={SKIN}></ellipse>
+
+  <path
+    fill={HAIR}
+    d="M90 132 C 84 82 114 50 156 50 C 198 50 220 84 212 134 C 202 106 186 88 162 84 C 140 104 116 118 90 132 Z"
+  ></path>
+  <g fill="none" stroke={HAIR_SHINE} stroke-linecap="round" opacity="0.75">
+    <path stroke-width="3" d="M124 64 Q 152 54 182 66"></path>
+    <path stroke-width="2.5" d="M106 86 Q 124 70 146 66"></path>
+    <path stroke-width="2.5" d="M164 60 Q 192 66 204 90"></path>
+    <path stroke-width="2" d="M132 82 Q 150 74 168 76"></path>
+    <path stroke-width="2.5" d="M82 140 Q 76 180 86 222"></path>
+    <path stroke-width="2" d="M76 176 Q 74 206 84 236"></path>
+    <path stroke-width="2.5" d="M220 140 Q 226 180 216 222"></path>
+    <path stroke-width="2" d="M226 176 Q 228 206 218 236"></path>
+  </g>
+
+  <path fill={HAIR} d="M92 124 C 82 164 90 204 104 236 C 96 202 98 166 106 136 Z"></path>
+  <path fill={HAIR} d="M210 128 C 220 166 212 204 198 236 C 205 202 203 166 196 138 Z"></path>
+
+  <g fill="none" stroke={HAIR} stroke-width="4.5" stroke-linecap="round">
+    <path d="M113 111 Q 126 103 140 109"></path>
+    <path d="M160 109 Q 174 103 187 111"></path>
+  </g>
+
+  <g fill="none" stroke="#2A1A12" stroke-width="3.8" stroke-linecap="round">
+    <path d="M118 135 Q 126 127 134 135"></path>
+    <path d="M166 135 Q 174 127 182 135"></path>
+  </g>
+
+  <g fill="#FFFFFF" fill-opacity="0.18" stroke={FRAMES} stroke-width="4.5" stroke-linejoin="round">
+    <rect x="106" y="117" width="39" height="30" rx="11"></rect>
+    <rect x="155" y="117" width="39" height="30" rx="11"></rect>
+  </g>
+  <g fill="none" stroke={FRAMES} stroke-width="4" stroke-linecap="round">
+    <path d="M145 128 Q 150 123 155 128"></path>
+    <path d="M106 125 L 95 121"></path>
+    <path d="M194 125 L 205 121"></path>
+  </g>
+
+  <path d="M150 142 Q 145 156 152 159" fill="none" stroke={SKIN_SHADE} stroke-width="3" stroke-linecap="round"></path>
+  <circle cx="117" cy="162" r="10" fill="#F08080" opacity="0.28"></circle>
+  <circle cx="183" cy="162" r="10" fill="#F08080" opacity="0.28"></circle>
+
+  <path d="M124 168 Q 150 200 176 168 Q 150 175 124 168 Z" fill="#7A2E2E"></path>
+  <path d="M128 169.5 Q 150 175.5 172 169.5 L 169 176 Q 150 181 131 176 Z" fill="#FFFFFF"></path>
+</svg>

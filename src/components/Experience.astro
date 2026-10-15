@@ -1,0 +1,43 @@
+---
+import SectionHeading from "./SectionHeading.astro";
+import TechChip from "./TechChip.astro";
+import { EXPERIENCE } from "../data/content";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<section id="experience" class="mx-auto max-w-5xl px-5 py-16 md:py-20">
+  <SectionHeading index="01" title={t("experience")} />
+
+  <ol class="space-y-5">
+    {
+      EXPERIENCE[lang].map((job) => (
+        <li class="card grid gap-6 p-6 transition hover:border-accent/40 md:grid-cols-[180px_1fr] md:p-9">
+          <div class="font-mono text-xs uppercase tracking-wider">
+            <p class="text-ink">{job.date}</p>
+            <p class="mt-1 text-muted">{job.type}</p>
+          </div>
+          <div>
+            <h3 class="text-2xl font-semibold tracking-tight">
+              {job.role}{" "}
+              <span class="whitespace-nowrap font-display text-3xl font-normal italic text-accent">
+                @ {job.company}
+              </span>
+            </h3>
+            <p class="mt-2 text-sm text-muted">{job.companyDetail}</p>
+            <div class="mt-6 max-w-2xl space-y-4">
+              {job.summary.map((paragraph) => (
+                <p class="text-pretty leading-relaxed text-muted">{paragraph}</p>
+              ))}
+            </div>
+            <ul class="mt-7 flex flex-wrap gap-2">
+              {job.tech.map((tech) => <TechChip tech={tech} />)}
+            </ul>
+          </div>
+        </li>
+      ))
+    }
+  </ol>
+</section>

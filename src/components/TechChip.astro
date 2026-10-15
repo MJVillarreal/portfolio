@@ -1,0 +1,15 @@
+---
+import TechIcon from "./TechIcon.astro";
+import type { Tech } from "../data/tech";
+
+interface Props {
+  tech: Tech;
+}
+
+const { tech } = Astro.props;
+---
+
+<li class="chip">
+  <TechIcon tech={tech} class="size-3.5" />
+  {tech.name}
+</li>

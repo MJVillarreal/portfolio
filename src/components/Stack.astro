@@ -1,0 +1,33 @@
+---
+import SectionHeading from "./SectionHeading.astro";
+import TechIcon from "./TechIcon.astro";
+import { STACK_GROUPS } from "../data/content";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<section id="stack" class="mx-auto max-w-5xl px-5 py-16 md:py-20">
+  <SectionHeading index="03" title={t("stack")} />
+
+  <dl class="card divide-y divide-line px-5 md:px-8">
+    {
+      STACK_GROUPS.map((group) => (
+        <div class="grid gap-3 py-5 md:grid-cols-[200px_1fr] md:items-center md:gap-6">
+          <dt class="eyebrow">{group.title[lang]}</dt>
+          <dd>
+            <ul class="flex flex-wrap gap-2">
+              {group.items.map((tech) => (
+                <li class="flex items-center gap-2 rounded-xl border border-line bg-bg/60 px-3 py-1.5 text-sm font-medium transition hover:-translate-y-0.5 hover:border-accent/40">
+                  <TechIcon tech={tech} class="size-[18px] shrink-0" />
+                  {tech.name}
+                </li>
+              ))}
+            </ul>
+          </dd>
+        </div>
+      ))
+    }
+  </dl>
+</section>

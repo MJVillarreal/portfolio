@@ -1,0 +1,35 @@
+---
+import CopyEmail from "./CopyEmail.astro";
+import LinkedInIcon from "../icons/HeroIcons/LinkedIn.astro";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<section id="contact" class="mx-auto max-w-5xl px-5 py-16 md:py-20">
+  <div
+    class="relative overflow-hidden rounded-[2.5rem] border border-line bg-surface/70 px-6 py-16 text-center backdrop-blur-sm md:px-16 md:py-24"
+  >
+    <div aria-hidden="true" class="absolute -right-24 -top-24 size-72 rounded-full bg-pop/20 blur-3xl"></div>
+    <div aria-hidden="true" class="absolute -bottom-32 -left-20 size-80 rounded-full bg-glow/25 blur-3xl"></div>
+
+    <p class="eyebrow relative">06 — {t("contact")}</p>
+    <h2 class="relative mt-4 font-display text-6xl leading-none tracking-tight md:text-8xl">
+      {t("contactTitle")}
+    </h2>
+    <p class="relative mx-auto mt-6 max-w-md text-pretty text-muted">{t("contactLead")}</p>
+
+    <div class="relative mt-10 flex flex-wrap items-center justify-center gap-3">
+      <CopyEmail email="villarrealmariaj@gmail.com" class="btn-primary" />
+      <a
+        href="https://www.linkedin.com/in/mariajose-villarreal"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-ghost"
+      >
+        <LinkedInIcon class="size-4" /> LinkedIn
+      </a>
+    </div>
+  </div>
+</section>

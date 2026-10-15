@@ -1,0 +1,50 @@
+---
+import MailIcon from "../icons/HeroIcons/Mail.astro";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+interface Props {
+  email: string;
+  class?: string;
+}
+
+const { email, class: className = "btn-ghost" } = Astro.props;
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<button
+  type="button"
+  class={`group ${className}`}
+  data-copy={email}
+  data-copied-text={t("copied")}
+  title={t("copyEmail")}
+>
+  <MailIcon class="size-4 shrink-0" />
+  <span data-copy-label>{email}</span>
+  <span class="sr-only" role="status" data-copy-status></span>
+</button>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    document.querySelectorAll<HTMLButtonElement>("[data-copy]").forEach((button) => {
+      const label = button.querySelector<HTMLElement>("[data-copy-label]")!;
+      const status = button.querySelector<HTMLElement>("[data-copy-status]")!;
+      const original = label.textContent;
+
+      button.addEventListener("click", async () => {
+        try {
+          await navigator.clipboard.writeText(button.dataset.copy!);
+        } catch {
+          return;
+        }
+        label.textContent = button.dataset.copiedText!;
+        status.textContent = button.dataset.copiedText!;
+        setTimeout(() => {
+          label.textContent = original;
+          status.textContent = "";
+        }, 1800);
+      });
+    });
+  });
+</script>

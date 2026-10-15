@@ -1,0 +1,66 @@
+---
+import SectionHeading from "./SectionHeading.astro";
+import { EDUCATION } from "../data/content";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const items = EDUCATION[lang];
+---
+
+<section id="education" class="mx-auto max-w-5xl px-5 py-16 md:py-20">
+  <SectionHeading index="04" title={t("education")} />
+
+  <ol>
+    {
+      items.map((item, i) => (
+        <li class="group grid md:grid-cols-[160px_1fr] md:gap-10">
+          <p class="hidden pt-1 text-right font-mono text-xs uppercase tracking-wider text-muted md:block">
+            {item.date}
+          </p>
+
+          <div
+            class:list={[
+              "relative border-l pl-8",
+              i === items.length - 1 ? "border-transparent" : "border-line pb-12",
+            ]}
+          >
+            {i === items.length - 1 && (
+              <span aria-hidden="true" class="absolute -left-px top-0 h-2 w-px bg-line" />
+            )}
+            <span
+              aria-hidden="true"
+              class:list={[
+                "absolute -left-[7px] top-1.5 size-3.5 rounded-full border-2 border-accent transition-transform group-hover:scale-125",
+                item.current ? "bg-accent shadow-[0_0_0_4px_rgb(var(--accent)/0.15)]" : "bg-bg",
+              ]}
+            />
+            <p class="mb-1 font-mono text-xs uppercase tracking-wider text-muted md:hidden">{item.date}</p>
+            <h3 class="text-xl font-semibold tracking-tight md:text-2xl">{item.title}</h3>
+            <p class="mt-1 text-sm font-medium text-accent">{item.place}</p>
+            <p class="mt-3 max-w-xl text-pretty leading-relaxed text-muted">{item.description}</p>
+
+            {
+              (item.detail || item.certificate) && (
+                <div class="mt-4 flex flex-wrap items-center gap-3 text-sm">
+                  {item.detail && <span class="chip">{item.detail}</span>}
+                  {item.certificate && (
+                    <a
+                      href={item.certificate}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="inline-flex items-center gap-1 font-medium text-accent underline-offset-4 hover:underline"
+                    >
+                      {t("viewCertificate")} <span aria-hidden="true">↗</span>
+                    </a>
+                  )}
+                </div>
+              )
+            }
+          </div>
+        </li>
+      ))
+    }
+  </ol>
+</section>
