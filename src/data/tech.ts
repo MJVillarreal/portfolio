@@ -10,6 +10,7 @@ import {
   siGoogleanalytics,
   siGooglecloud,
   siGoogledrive,
+  siGooglegemini,
   siMariadb,
   siMeta,
   siMysql,
@@ -22,6 +23,7 @@ import {
   siTraefikproxy,
   siTypeorm,
   siVercel,
+  siVitest,
 } from "simple-icons";
 
 import CSS from "../icons/ProjectIcons/CSS.astro";
@@ -79,6 +81,7 @@ export const TECH = {
   GDRIVE: { name: "Google Drive API", brand: siGoogledrive },
   META_PIXEL: { name: "Meta Pixel", brand: siMeta },
   GANALYTICS: { name: "Google Analytics", brand: siGoogleanalytics },
+  GEMINI: { name: "Gemini API", brand: siGooglegemini },
 
   DOCKER: { name: "Docker", brand: siDocker },
   TRAEFIK: { name: "Traefik", brand: siTraefikproxy },
@@ -88,6 +91,7 @@ export const TECH = {
 
   ESLINT: { name: "ESLint", brand: siEslint },
   PRETTIER: { name: "Prettier", brand: siPrettier },
+  VITEST: { name: "Vitest", brand: siVitest },
 
   GIT: { name: "Git", brand: siGit },
   GITHUB: { name: "GitHub", brand: siGithub },
