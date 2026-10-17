@@ -6,6 +6,9 @@ import candidatos from "../assets/projects/gestion-personal/candidatos.png";
 import periodoDePrueba from "../assets/projects/gestion-personal/periodo-de-prueba.png";
 import eventos from "../assets/projects/gestion-personal/eventos.png";
 import eventoDetalle from "../assets/projects/gestion-personal/evento-detalle.png";
+import novedades from "../assets/projects/gestion-personal/novedades.webp";
+import padron from "../assets/projects/gestion-personal/padron.webp";
+import detalleEmpleado from "../assets/projects/gestion-personal/detalle-empleado.webp";
 
 import reservasBosco from "../assets/projects/reservas/bosco.webp";
 import reservasCoraje from "../assets/projects/reservas/coraje.webp";
@@ -130,6 +133,9 @@ export const FEATURED_PROJECT: Record<Lang, FeaturedProject> = {
       { src: periodoDePrueba, caption: "Período de prueba: días restantes de cada empleado" },
       { src: eventos, caption: "Personal eventual: eventos planificados y reporte en Excel" },
       { src: eventoDetalle, caption: "Detalle de un evento: horas, tarifa, asistencia y evaluación" },
+      { src: novedades, caption: "Mano de Obra: grilla de turnos por empleado, con cierre de período y exportación a Excel" },
+      { src: padron, caption: "Padrón de empleados con búsqueda, filtros por estado e importación desde Excel" },
+      { src: detalleEmpleado, caption: "Detalle de un empleado: razón social, sector, convenio y datos para la liquidación" },
     ],
     tech: PROJECT_TECH,
   },
@@ -163,6 +169,9 @@ export const FEATURED_PROJECT: Record<Lang, FeaturedProject> = {
       { src: periodoDePrueba, caption: "Probation period: days left for each employee" },
       { src: eventos, caption: "Temporary staff: planned events and Excel report" },
       { src: eventoDetalle, caption: "Event detail: hours, rate, attendance and evaluation" },
+      { src: novedades, caption: "Workforce: shift grid per employee, with period closing and Excel export" },
+      { src: padron, caption: "Staff roster with search, status filters and Excel import" },
+      { src: detalleEmpleado, caption: "Employee detail: legal entity, department, labor agreement and payroll data" },
     ],
     tech: PROJECT_TECH,
   },
