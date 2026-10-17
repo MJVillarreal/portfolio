@@ -6,7 +6,7 @@ import { getLangFromUrl, useTranslations } from "../i18n/utils";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-// true → foto real (public/profile.webp) · false → avatar ilustrado
+// true → foto real (public/profile.webp), false → avatar ilustrado
 const SHOW_PHOTO = false;
 
 const frameClass =
@@ -24,7 +24,7 @@ const FACTS = [
   <SectionHeading index="05" title={t("about")} />
 
   <div class="grid items-center gap-12 md:grid-cols-[1fr_300px]">
-    <div class="order-2 md:order-1">
+    <div data-reveal class="order-2 md:order-1">
       <p class="text-pretty leading-relaxed text-muted">{t("aboutP1")}</p>
       <p class="mt-4 text-pretty leading-relaxed text-muted">{t("aboutP2")}</p>
       <p class="mt-4 text-pretty leading-relaxed text-muted">{t("aboutP3")}</p>
@@ -41,7 +41,7 @@ const FACTS = [
       </dl>
     </div>
 
-    <div class="relative order-1 mx-auto w-60 md:order-2 md:w-full">
+    <div data-reveal style="--reveal-delay: 150ms" class="relative order-1 mx-auto w-60 md:order-2 md:w-full">
       <div class="absolute inset-0 translate-x-3 translate-y-3 rotate-3 rounded-[2rem] bg-glow/40"></div>
       {
         SHOW_PHOTO ? (

@@ -13,8 +13,8 @@ const t = useTranslations(lang);
 
   <dl class="card divide-y divide-line px-5 md:px-8">
     {
-      STACK_GROUPS.map((group) => (
-        <div class="grid gap-3 py-5 md:grid-cols-[200px_1fr] md:items-center md:gap-6">
+      STACK_GROUPS.map((group, i) => (
+        <div data-reveal style={`--reveal-delay: ${i * 60}ms`} class="grid gap-3 py-5 md:grid-cols-[200px_1fr] md:items-center md:gap-6">
           <dt class="eyebrow">{group.title[lang]}</dt>
           <dd>
             <ul class="flex flex-wrap gap-2">

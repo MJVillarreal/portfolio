@@ -76,7 +76,7 @@ export const EXPERIENCE: Record<Lang, Job[]> = {
       company: "Grupo Broda",
       companyDetail:
         "Grupo gastronómico de Mendoza (La Marchigiana, Bosco, Nipoti, Coraje y Supra)",
-      date: "2026 — Actualidad",
+      date: "2026 - Actualidad",
       type: "Part-time",
       summary: [
         "Formo parte del equipo de Control de Gestión, el área de tecnología del grupo. Me encargo de identificar procesos que pueden mejorarse mediante la automatización, desarrollar nuevas herramientas y optimizar las que ya están en uso. Esto incluye desde aplicaciones internas que reemplazan planillas de Excel hasta mejoras en el sistema de reservas de los restaurantes.",
@@ -91,7 +91,7 @@ export const EXPERIENCE: Record<Lang, Job[]> = {
       company: "Grupo Broda",
       companyDetail:
         "Restaurant group from Mendoza (La Marchigiana, Bosco, Nipoti, Coraje and Supra)",
-      date: "2026 — Present",
+      date: "2026 - Present",
       type: "Part-time",
       summary: [
         "I'm part of the Management Control team, which oversees technology across the group. I identify processes that can be improved through automation, build new tools and optimize the ones already in use. That ranges from internal applications that replace Excel spreadsheets to improvements to the restaurants' reservation system.",
@@ -104,7 +104,7 @@ export const EXPERIENCE: Record<Lang, Job[]> = {
 
 export const FEATURED_PROJECT: Record<Lang, FeaturedProject> = {
   es: {
-    label: "Proyecto profesional · Grupo Broda",
+    label: "Proyecto profesional en Grupo Broda",
     title: "Sistema de Gestión de Personal",
     description:
       "Plataforma web interna que reemplaza las planillas de Excel en la gestión de personal de un grupo gastronómico con varias sucursales. La plataforma se divide en dos módulos, conectados entre sí y con el ERP Odoo.",
@@ -125,7 +125,7 @@ export const FEATURED_PROJECT: Record<Lang, FeaturedProject> = {
       { value: "3 servicios", label: "Capital Humano ↔ Odoo ↔ Mano de Obra" },
       { value: "Automatizaciones", label: "Tareas programadas e import/export de Excel" },
       { value: "Docker + HTTPS", label: "Deploy en contenedores" },
-      { value: "130+ commits", label: "Abril — septiembre 2026" },
+      { value: "130+ commits", label: "Abril a septiembre de 2026" },
     ],
     gallery: [
       { src: solicitudes, caption: "Solicitudes de personal: puesto, sucursal y prioridad de cada pedido" },
@@ -140,7 +140,7 @@ export const FEATURED_PROJECT: Record<Lang, FeaturedProject> = {
     tech: PROJECT_TECH,
   },
   en: {
-    label: "Professional project · Grupo Broda",
+    label: "Professional project at Grupo Broda",
     title: "Staff Management System",
     description:
       "An internal web platform that replaces the Excel spreadsheets used to manage staff across a restaurant group with multiple locations. It consists of two interconnected modules, both integrated with the Odoo ERP.",
@@ -161,7 +161,7 @@ export const FEATURED_PROJECT: Record<Lang, FeaturedProject> = {
       { value: "3 services", label: "HR ↔ Odoo ↔ Workforce" },
       { value: "Automation", label: "Scheduled jobs and Excel import/export" },
       { value: "Docker + HTTPS", label: "Containerized deploy" },
-      { value: "130+ commits", label: "April — September 2026" },
+      { value: "130+ commits", label: "April to September 2026" },
     ],
     gallery: [
       { src: solicitudes, caption: "Staffing requests: position, location and priority of each request" },
@@ -248,7 +248,7 @@ export const OTHER_WORK_PROJECTS: Record<Lang, WorkProject[]> = {
       title: "Sistema de reservas online",
       description:
         "Un mismo sistema para 6 locales de 4 marcas, cada uno con su propia identidad visual. Se integra con el módulo de citas de Odoo y permite modificar y cancelar reservas, detectar duplicados y enviar correos electrónicos con el diseño de cada local.",
-      tag: "6 locales · 4 marcas",
+      tag: "6 locales, 4 marcas",
       images: RESERVAS_IMAGES,
       tech: RESERVAS_TECH,
     },
@@ -268,7 +268,7 @@ export const OTHER_WORK_PROJECTS: Record<Lang, WorkProject[]> = {
       title: "Online reservation system",
       description:
         "One reservation system serving six restaurants across four brands, each with its own visual identity. Integrated with Odoo's appointments module, it allows guests to modify or cancel bookings, detects duplicate reservations, and sends emails customized for each restaurant.",
-      tag: "6 restaurants · 4 brands",
+      tag: "6 restaurants, 4 brands",
       images: RESERVAS_IMAGES,
       tech: RESERVAS_TECH,
     },
@@ -294,14 +294,14 @@ export type EducationItem = {
   current?: boolean;
 };
 
-const CTD = "Certified Tech Developer · Digital House, Globant y Mercado Libre";
-const CTD_EN = "Certified Tech Developer · Digital House, Globant & Mercado Libre";
+const CTD = "Certified Tech Developer (Digital House, Globant y Mercado Libre)";
+const CTD_EN = "Certified Tech Developer (Digital House, Globant & Mercado Libre)";
 
 export const EDUCATION: Record<Lang, EducationItem[]> = {
   es: [
     {
       title: "Ingeniería en Sistemas de Información",
-      place: "Universidad Tecnológica Nacional — FRM",
+      place: "Universidad Tecnológica Nacional, FRM",
       date: "En curso",
       description:
         "Cursando la carrera en la UTN Facultad Regional Mendoza, con formación en programación, análisis de sistemas y gestión de proyectos tecnológicos.",
@@ -326,7 +326,7 @@ export const EDUCATION: Record<Lang, EducationItem[]> = {
       certificate: "/certificados/professional-developer.pdf",
     },
     {
-      title: "Inglés — Nivel C1",
+      title: "Inglés, nivel C1",
       place: "English Language Learning Centre",
       date: "2018",
       description: "Examen final de quinto año, nivel C1, con un promedio de 9,50.",
@@ -335,7 +335,7 @@ export const EDUCATION: Record<Lang, EducationItem[]> = {
   en: [
     {
       title: "Information Systems Engineering",
-      place: "National Technological University (UTN) — Mendoza",
+      place: "National Technological University (UTN), Mendoza",
       date: "In progress",
       description:
         "Currently pursuing a degree in Information Systems Engineering at UTN Mendoza Regional Faculty, with coursework in programming, systems analysis, and technology project management.",
@@ -360,7 +360,7 @@ export const EDUCATION: Record<Lang, EducationItem[]> = {
       certificate: "/certificados/professional-developer.pdf",
     },
     {
-      title: "English — C1 level",
+      title: "English, C1 level",
       place: "English Language Learning Centre",
       date: "2018",
       description: "Fifth-year final examination, C1 level, with an overall average of 9.50.",

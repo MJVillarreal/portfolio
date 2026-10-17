@@ -14,7 +14,7 @@ const t = useTranslations(lang);
   <ol class="space-y-5">
     {
       EXPERIENCE[lang].map((job) => (
-        <li class="card grid gap-6 p-6 transition hover:border-accent/40 md:grid-cols-[180px_1fr] md:p-9">
+        <li data-reveal class="card grid gap-6 p-6 transition hover:border-accent/40 md:grid-cols-[180px_1fr] md:p-9">
           <div class="font-mono text-xs uppercase tracking-wider">
             <p class="text-ink">{job.date}</p>
             <p class="mt-1 text-muted">{job.type}</p>

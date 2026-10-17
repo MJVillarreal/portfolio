@@ -36,7 +36,7 @@ const SIDE_PROJECTS = [
 <section id="projects" class="mx-auto max-w-5xl px-5 py-16 md:py-20">
   <SectionHeading index="02" title={t("projects")} />
 
-  <article class="card p-5 md:p-8">
+  <article data-reveal class="card p-5 md:p-8">
     <p class="eyebrow">{featured.label}</p>
     <div class="mt-3 grid gap-4 md:grid-cols-[1fr_1.2fr] md:items-end md:gap-10">
       <h3 class="font-display text-4xl leading-tight md:text-5xl">{featured.title}</h3>
@@ -78,16 +78,16 @@ const SIDE_PROJECTS = [
     </ul>
   </article>
 
-  <h3 class="eyebrow mb-6 mt-16 text-muted">{t("moreAtBroda")}</h3>
+  <h3 data-reveal class="eyebrow mb-6 mt-16 text-muted">{t("moreAtBroda")}</h3>
   <div class="grid gap-5 md:grid-cols-2">
-    {OTHER_WORK_PROJECTS[lang].map((project) => <WorkProjectCard project={project} />)}
+    {OTHER_WORK_PROJECTS[lang].map((project, i) => <WorkProjectCard project={project} delay={i * 120} />)}
   </div>
 
-  <h3 class="eyebrow mb-6 mt-16 text-muted">{t("sideProjects")}</h3>
+  <h3 data-reveal class="eyebrow mb-6 mt-16 text-muted">{t("sideProjects")}</h3>
   <div class="grid gap-5 md:grid-cols-2">
     {
-      SIDE_PROJECTS.map((project) => (
-        <article class="card group flex flex-col overflow-hidden p-3 transition hover:-translate-y-1 hover:border-accent/40 hover:shadow-xl hover:shadow-ink/5">
+      SIDE_PROJECTS.map((project, i) => (
+        <article data-reveal style={`--reveal-delay: ${i * 120}ms`} class="card group flex flex-col overflow-hidden p-3 transition hover:-translate-y-1 hover:border-accent/40 hover:shadow-xl hover:shadow-ink/5">
           <div class="overflow-hidden rounded-2xl border border-line">
             <img
               src={project.image}

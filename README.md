@@ -1,4 +1,4 @@
-# Portfolio — María José Villarreal
+# Portfolio | María José Villarreal
 
 A bilingual personal portfolio showcasing my projects, professional experience, and technical skills. Built with [Astro](https://astro.build) and [Tailwind CSS](https://tailwindcss.com).
 

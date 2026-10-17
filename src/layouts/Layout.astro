@@ -71,6 +71,7 @@ const ogLocale = currentLocale === "es" ? "es_AR" : "en_US";
             (theme === "system" &&
               window.matchMedia("(prefers-color-scheme: dark)").matches);
           document.documentElement.classList.toggle("dark", isDark);
+          document.documentElement.classList.add("reveal-ready");
         };
         applyTheme();
         document.addEventListener("astro:after-swap", applyTheme);
@@ -88,5 +89,10 @@ const ogLocale = currentLocale === "es" ? "es_AR" : "en_US";
     <Header />
     <slot />
     <Footer />
+
+    <script>
+      import { initReveal } from "../scripts/reveal";
+      document.addEventListener("astro:page-load", initReveal);
+    </script>
   </body>
 </html>

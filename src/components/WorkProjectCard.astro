@@ -6,15 +6,16 @@ import { getLangFromUrl, useTranslations } from "../i18n/utils";
 
 interface Props {
   project: WorkProject;
+  delay?: number;
 }
 
-const { project } = Astro.props;
+const { project, delay = 0 } = Astro.props;
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<article class="card flex flex-col overflow-hidden p-3 transition hover:border-accent/40">
+<article data-reveal style={`--reveal-delay: ${delay}ms`} class="card flex flex-col overflow-hidden p-3 transition hover:border-accent/40">
   {
     project.images?.length ? (
       <div class="grid grid-cols-2 gap-1.5 overflow-hidden rounded-2xl border border-line bg-line">
